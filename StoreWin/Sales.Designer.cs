@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sales));
             this.btn_print = new System.Windows.Forms.Button();
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.txt_total = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_qty = new System.Windows.Forms.NumericUpDown();
             this.grid_invprods = new System.Windows.Forms.DataGridView();
             this.prodid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,10 +57,9 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.combo_invno = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_qty = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_print
@@ -166,6 +167,13 @@
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات الاصناف";
+            // 
+            // txt_qty
+            // 
+            this.txt_qty.Location = new System.Drawing.Point(461, 62);
+            this.txt_qty.Name = "txt_qty";
+            this.txt_qty.Size = new System.Drawing.Size(59, 20);
+            this.txt_qty.TabIndex = 17;
             // 
             // grid_invprods
             // 
@@ -318,13 +326,6 @@
             this.label8.TabIndex = 31;
             this.label8.Text = "بحث عن فاتورة";
             // 
-            // txt_qty
-            // 
-            this.txt_qty.Location = new System.Drawing.Point(461, 62);
-            this.txt_qty.Name = "txt_qty";
-            this.txt_qty.Size = new System.Drawing.Size(59, 20);
-            this.txt_qty.TabIndex = 17;
-            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,14 +347,16 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_invno);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Sales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "المبيعات";
             this.Load += new System.EventHandler(this.Sales_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

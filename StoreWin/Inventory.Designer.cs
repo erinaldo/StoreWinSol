@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.Grid_prods = new System.Windows.Forms.DataGridView();
-            this.radio_one = new System.Windows.Forms.RadioButton();
-            this.radio_all = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_show = new System.Windows.Forms.Button();
-            this.combo_prod = new System.Windows.Forms.ComboBox();
             this.inv_prod_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inv_prod_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inv_prod_pur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inv_prod_sel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inv_prod_qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radio_one = new System.Windows.Forms.RadioButton();
+            this.radio_all = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_show = new System.Windows.Forms.Button();
+            this.combo_prod = new System.Windows.Forms.ComboBox();
             this.btn_print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_prods)).BeginInit();
             this.SuspendLayout();
             // 
             // Grid_prods
             // 
+            this.Grid_prods.AllowUserToAddRows = false;
+            this.Grid_prods.AllowUserToDeleteRows = false;
             this.Grid_prods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_prods.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.inv_prod_id,
@@ -54,9 +57,44 @@
             this.inv_prod_qty});
             this.Grid_prods.Location = new System.Drawing.Point(12, 129);
             this.Grid_prods.Name = "Grid_prods";
+            this.Grid_prods.ReadOnly = true;
             this.Grid_prods.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Grid_prods.Size = new System.Drawing.Size(503, 338);
             this.Grid_prods.TabIndex = 0;
+            // 
+            // inv_prod_id
+            // 
+            this.inv_prod_id.HeaderText = "";
+            this.inv_prod_id.Name = "inv_prod_id";
+            this.inv_prod_id.ReadOnly = true;
+            this.inv_prod_id.Visible = false;
+            // 
+            // inv_prod_name
+            // 
+            this.inv_prod_name.HeaderText = "الصنف";
+            this.inv_prod_name.Name = "inv_prod_name";
+            this.inv_prod_name.ReadOnly = true;
+            this.inv_prod_name.Width = 200;
+            // 
+            // inv_prod_pur
+            // 
+            this.inv_prod_pur.HeaderText = "مشتريات";
+            this.inv_prod_pur.Name = "inv_prod_pur";
+            this.inv_prod_pur.ReadOnly = true;
+            this.inv_prod_pur.Width = 80;
+            // 
+            // inv_prod_sel
+            // 
+            this.inv_prod_sel.HeaderText = "مبيعات";
+            this.inv_prod_sel.Name = "inv_prod_sel";
+            this.inv_prod_sel.ReadOnly = true;
+            this.inv_prod_sel.Width = 80;
+            // 
+            // inv_prod_qty
+            // 
+            this.inv_prod_qty.HeaderText = "الكمية الحالية";
+            this.inv_prod_qty.Name = "inv_prod_qty";
+            this.inv_prod_qty.ReadOnly = true;
             // 
             // radio_one
             // 
@@ -113,35 +151,6 @@
             this.combo_prod.Size = new System.Drawing.Size(312, 21);
             this.combo_prod.TabIndex = 6;
             // 
-            // inv_prod_id
-            // 
-            this.inv_prod_id.HeaderText = "";
-            this.inv_prod_id.Name = "inv_prod_id";
-            this.inv_prod_id.Visible = false;
-            // 
-            // inv_prod_name
-            // 
-            this.inv_prod_name.HeaderText = "الصنف";
-            this.inv_prod_name.Name = "inv_prod_name";
-            this.inv_prod_name.Width = 200;
-            // 
-            // inv_prod_pur
-            // 
-            this.inv_prod_pur.HeaderText = "مشتريات";
-            this.inv_prod_pur.Name = "inv_prod_pur";
-            this.inv_prod_pur.Width = 80;
-            // 
-            // inv_prod_sel
-            // 
-            this.inv_prod_sel.HeaderText = "مبيعات";
-            this.inv_prod_sel.Name = "inv_prod_sel";
-            this.inv_prod_sel.Width = 80;
-            // 
-            // inv_prod_qty
-            // 
-            this.inv_prod_qty.HeaderText = "الكمية الحالية";
-            this.inv_prod_qty.Name = "inv_prod_qty";
-            // 
             // btn_print
             // 
             this.btn_print.Location = new System.Drawing.Point(248, 89);
@@ -165,9 +174,11 @@
             this.Controls.Add(this.radio_one);
             this.Controls.Add(this.Grid_prods);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Inventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "المخزن";
+            this.Text = "المخزون";
             this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grid_prods)).EndInit();
             this.ResumeLayout(false);

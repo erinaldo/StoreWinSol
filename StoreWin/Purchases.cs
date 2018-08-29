@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Data.OleDb;
 using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace StoreWin
 {
@@ -125,109 +120,116 @@ namespace StoreWin
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-            OleDbTransaction tr;
-            if (dbConn.State != ConnectionState.Open)
+            if (Convert.ToDecimal(txt_recieve.Text) < Convert.ToDecimal(txt_total.Text))
             {
-                dbConn.Open();
+                MessageBox.Show("!المبلغ المدفوع اقل من الاجمالي");
             }
-            
-            tr = dbConn.BeginTransaction();
-
-            try
+            else
             {
-                OleDbCommand dbCommand = new OleDbCommand();
-                dbCommand.Connection = dbConn;
-                dbCommand.Transaction = tr;
-
-                string sSQL = "INSERT INTO purchases_m(purchases_id,purchases_type,amount,recieve,remain)";
-                sSQL += "Values(@id,@type,@amount,@rec,@rem);";
-                dbCommand.CommandText = sSQL;
-
-                dbCommand.Parameters.AddWithValue("@id", txt_invno.Text);
-                dbCommand.Parameters.AddWithValue("@type", 1);
-                dbCommand.Parameters.AddWithValue("@amount", txt_total.Text);
-                dbCommand.Parameters.AddWithValue("@rec", txt_recieve.Text);
-                dbCommand.Parameters.AddWithValue("@rem", txt_remain.Text);
-
-                dbCommand.ExecuteNonQuery();
-
-                foreach (DataGridViewRow R in grid_invprods.Rows)
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                OleDbTransaction tr;
+                if (dbConn.State != ConnectionState.Open)
                 {
-
-                    OleDbCommand dbCommand2 = new OleDbCommand();
-                    dbCommand2.Connection = dbConn;
-
-                    string sSQL2 = "INSERT INTO purchases_d(purchases_id,product_id,qty,unitprice,totalprice)";
-                    sSQL2 += "Values(@id,@prodid,@qty,@unitprice,@totalprice);";
-                    dbCommand2.CommandText = sSQL2;
-                    dbCommand2.Transaction = tr;
-
-                    dbCommand2.Parameters.AddWithValue("@id", txt_invno.Text);
-                    dbCommand2.Parameters.AddWithValue("@prodid", R.Cells[0].Value);
-                    dbCommand2.Parameters.AddWithValue("@qty", R.Cells[3].Value);
-                    dbCommand2.Parameters.AddWithValue("@unitprice", R.Cells[2].Value);
-                    dbCommand2.Parameters.AddWithValue("@totalprice", R.Cells[4].Value);
-
-                    dbCommand2.ExecuteNonQuery();
-
-                    OleDbCommand dbCommand4 = new OleDbCommand();
-                    dbCommand4.Connection = dbConn;
-                    dbCommand4.Transaction = tr;
-                    string sSQL4 = "INSERT INTO inventory(product_id,qty,relate_to,relate_id)";
-                    sSQL4 += "Values(@prodid,@qty,@relto,@relid);";
-                    dbCommand4.CommandText = sSQL4;
-                    dbCommand4.Parameters.AddWithValue("@prodid", R.Cells[0].Value);
-                    dbCommand4.Parameters.AddWithValue("@qty", R.Cells[3].Value);
-                    dbCommand4.Parameters.AddWithValue("@relto", "pur");
-                    dbCommand4.Parameters.AddWithValue("@relid", txt_invno.Text);
-                    dbCommand4.ExecuteNonQuery();
-
-                    OleDbCommand dbCommand55 = new OleDbCommand();
-                    dbCommand55.Connection = dbConn;
-                    dbCommand55.Transaction = tr;
-                    string sSQL55 = "INSERT INTO inventory(product_id,qty,relate_to)";
-                    sSQL55 += "Values(@prodid,@qty,@relto);";
-                    dbCommand55.CommandText = sSQL55;
-                    dbCommand55.Parameters.AddWithValue("@prodid", R.Cells[0].Value);
-                    dbCommand55.Parameters.AddWithValue("@qty", 0);
-                    dbCommand55.Parameters.AddWithValue("@relto", "sel");
-                    dbCommand55.ExecuteNonQuery();
+                    dbConn.Open();
                 }
 
-                OleDbCommand dbCommand5 = new OleDbCommand();
-                dbCommand5.Connection = dbConn;
-                dbCommand5.Transaction = tr;
-                string sSQL5 = "INSERT INTO cash(amount,relate_to,relate_id)";
-                sSQL5 += "Values(@amount,@relto,@relid);";
-                dbCommand5.CommandText = sSQL5;
-                dbCommand5.Parameters.AddWithValue("@amount",txt_recieve.Text);
-                dbCommand5.Parameters.AddWithValue("@relto", "pur");
-                dbCommand5.Parameters.AddWithValue("@relid", txt_invno.Text);
-                dbCommand5.ExecuteNonQuery();
+                tr = dbConn.BeginTransaction();
+
+                try
+                {
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    dbCommand.Connection = dbConn;
+                    dbCommand.Transaction = tr;
+
+                    string sSQL = "INSERT INTO purchases_m(purchases_id,purchases_type,amount,recieve,remain)";
+                    sSQL += "Values(@id,@type,@amount,@rec,@rem);";
+                    dbCommand.CommandText = sSQL;
+
+                    dbCommand.Parameters.AddWithValue("@id", txt_invno.Text);
+                    dbCommand.Parameters.AddWithValue("@type", 1);
+                    dbCommand.Parameters.AddWithValue("@amount", txt_total.Text);
+                    dbCommand.Parameters.AddWithValue("@rec", txt_recieve.Text);
+                    dbCommand.Parameters.AddWithValue("@rem", txt_remain.Text);
+
+                    dbCommand.ExecuteNonQuery();
+
+                    foreach (DataGridViewRow R in grid_invprods.Rows)
+                    {
+
+                        OleDbCommand dbCommand2 = new OleDbCommand();
+                        dbCommand2.Connection = dbConn;
+
+                        string sSQL2 = "INSERT INTO purchases_d(purchases_id,product_id,qty,unitprice,totalprice)";
+                        sSQL2 += "Values(@id,@prodid,@qty,@unitprice,@totalprice);";
+                        dbCommand2.CommandText = sSQL2;
+                        dbCommand2.Transaction = tr;
+
+                        dbCommand2.Parameters.AddWithValue("@id", txt_invno.Text);
+                        dbCommand2.Parameters.AddWithValue("@prodid", R.Cells[0].Value);
+                        dbCommand2.Parameters.AddWithValue("@qty", R.Cells[3].Value);
+                        dbCommand2.Parameters.AddWithValue("@unitprice", R.Cells[2].Value);
+                        dbCommand2.Parameters.AddWithValue("@totalprice", R.Cells[4].Value);
+
+                        dbCommand2.ExecuteNonQuery();
+
+                        OleDbCommand dbCommand4 = new OleDbCommand();
+                        dbCommand4.Connection = dbConn;
+                        dbCommand4.Transaction = tr;
+                        string sSQL4 = "INSERT INTO inventory(product_id,qty,relate_to,relate_id)";
+                        sSQL4 += "Values(@prodid,@qty,@relto,@relid);";
+                        dbCommand4.CommandText = sSQL4;
+                        dbCommand4.Parameters.AddWithValue("@prodid", R.Cells[0].Value);
+                        dbCommand4.Parameters.AddWithValue("@qty", R.Cells[3].Value);
+                        dbCommand4.Parameters.AddWithValue("@relto", "pur");
+                        dbCommand4.Parameters.AddWithValue("@relid", txt_invno.Text);
+                        dbCommand4.ExecuteNonQuery();
+
+                        OleDbCommand dbCommand55 = new OleDbCommand();
+                        dbCommand55.Connection = dbConn;
+                        dbCommand55.Transaction = tr;
+                        string sSQL55 = "INSERT INTO inventory(product_id,qty,relate_to)";
+                        sSQL55 += "Values(@prodid,@qty,@relto);";
+                        dbCommand55.CommandText = sSQL55;
+                        dbCommand55.Parameters.AddWithValue("@prodid", R.Cells[0].Value);
+                        dbCommand55.Parameters.AddWithValue("@qty", 0);
+                        dbCommand55.Parameters.AddWithValue("@relto", "sel");
+                        dbCommand55.ExecuteNonQuery();
+                    }
+
+                    OleDbCommand dbCommand5 = new OleDbCommand();
+                    dbCommand5.Connection = dbConn;
+                    dbCommand5.Transaction = tr;
+                    string sSQL5 = "INSERT INTO cash(amount,relate_to,relate_id)";
+                    sSQL5 += "Values(@amount,@relto,@relid);";
+                    dbCommand5.CommandText = sSQL5;
+                    dbCommand5.Parameters.AddWithValue("@amount", txt_recieve.Text);
+                    dbCommand5.Parameters.AddWithValue("@relto", "pur");
+                    dbCommand5.Parameters.AddWithValue("@relid", txt_invno.Text);
+                    dbCommand5.ExecuteNonQuery();
 
 
-                OleDbCommand dbCommand3 = new OleDbCommand();
-                dbCommand3.Connection = dbConn;
-                dbCommand3.Transaction = tr;
+                    OleDbCommand dbCommand3 = new OleDbCommand();
+                    dbCommand3.Connection = dbConn;
+                    dbCommand3.Transaction = tr;
 
-                string sSQL3 = "INSERT INTO Processes(process_name)";
-                sSQL3 += "Values(@p_name);";
-                dbCommand3.CommandText = sSQL3;
+                    string sSQL3 = "INSERT INTO Processes(process_name)";
+                    sSQL3 += "Values(@p_name);";
+                    dbCommand3.CommandText = sSQL3;
 
-                string p_name = "عملية شراء - اجمالي مبلغ '"+ txt_total.Text + "' - مستلم '"+ txt_recieve.Text + "' - متبقي '"+ txt_remain.Text + "'";
+                    string p_name = "عملية شراء - اجمالي مبلغ '" + txt_total.Text + "' - مستلم '" + txt_recieve.Text + "' - متبقي '" + txt_remain.Text + "'";
 
-                dbCommand3.Parameters.AddWithValue("@p_name", p_name);               
+                    dbCommand3.Parameters.AddWithValue("@p_name", p_name);
 
-                dbCommand3.ExecuteNonQuery();
+                    dbCommand3.ExecuteNonQuery();
 
-                tr.Commit();
-                dbConn.Close();
-                MessageBox.Show("تم حفظ الفاتورة");
-            }
-            catch
-            {
-                tr.Rollback();
+                    tr.Commit();
+                    dbConn.Close();
+                    MessageBox.Show("تم حفظ الفاتورة");
+                }
+                catch
+                {
+                    tr.Rollback();
+                }
             }
         }
 
@@ -284,9 +286,9 @@ namespace StoreWin
 
         private void txt_recieve_KeyUp(object sender, KeyEventArgs e)
         {
-            if (txt_recieve.Text != "" && txt_recieve.Text != null)
+            if (txt_recieve.Text != "" && txt_recieve.Text != null && Convert.ToDecimal(txt_recieve.Text) > Convert.ToDecimal(txt_total.Text))
             {
-                txt_remain.Text = (Convert.ToDecimal(txt_total.Text) - Convert.ToDecimal(txt_recieve.Text)).ToString();
+                txt_remain.Text = (Convert.ToDecimal(txt_recieve.Text) - Convert.ToDecimal(txt_total.Text)).ToString();
             }
         }
 

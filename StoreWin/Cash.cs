@@ -1,44 +1,90 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Data.OleDb;
 using System.Configuration;
+using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace StoreWin
 {
     public partial class Cash : Form
     {
+        OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+
         public Cash()
         {
             InitializeComponent();
         }
 
-        private void Cash_Load(object sender, EventArgs e)
+        private decimal Cash_out()
         {
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+            decimal cashout = 0;
 
             dbConn.Open();
             OleDbCommand dbCommand = new OleDbCommand();
             dbCommand.Connection = dbConn;
 
-            string sSQL = "SELECT sum(amount) from cash WHERE Format(actiondate, 'Short Date')=DATE()";
+            string sSQL = "SELECT sum(amount) from cash WHERE((Format(actiondate, 'Short Date')=DATE()) AND relate_to='pur')";
+            //string sSQL = "SELECT sum(amount) from cash WHERE relate_to = 'pur'";
             dbCommand.CommandText = sSQL;
 
             OleDbDataReader reader = dbCommand.ExecuteReader();
             if (reader.Read())
             {
-                textBox1.Text = reader[0].ToString();
+                if (reader.IsDBNull(0))
+                {
+                    cashout = 0;
+                    
+                }
+                else
+                {
+                    cashout = Convert.ToDecimal(reader[0]);
+                }
             }
+            dbConn.Close();
+            return cashout;
+        }
+
+        private decimal Cash_in()
+        {
+            decimal cashin = 0;
+
+            dbConn.Open();
+            OleDbCommand dbCommand = new OleDbCommand();
+            dbCommand.Connection = dbConn;
+
+            string sSQL = "SELECT sum(amount) from cash WHERE Format(actiondate, 'Short Date')=DATE() AND relate_to <> 'pur'";
+            //string sSQL = "SELECT sum(amount) from cash WHERE relate_to <> 'pur'";
+            dbCommand.CommandText = sSQL;
+
+            OleDbDataReader reader = dbCommand.ExecuteReader();
+            if (reader.Read())
+            {
+                if (reader.IsDBNull(0))
+                {
+                    cashin = 0;                 
+                }
+                else
+                {
+                    cashin = Convert.ToDecimal(reader[0]);
+                }
+                
+            }
+            dbConn.Close();
+            return cashin;
+        }
+        private void Cash_Load(object sender, EventArgs e)
+        {
+            textBox4.Text = Cash_out().ToString();
+
+            textBox1.Text = Cash_in().ToString();
+
+            dbConn.Open();
 
             OleDbCommand dbCommand2 = new OleDbCommand();
             dbCommand2.Connection = dbConn;
 
             string sSQL2 = "SELECT actiondate from cash WHERE Format(actiondate, 'Short Date')=DATE() ORDER BY actiondate DESC";
+            //string sSQL2 = "SELECT actiondate from cash ORDER BY actiondate DESC";
+
             dbCommand2.CommandText = sSQL2;
 
             OleDbDataReader reader2 = dbCommand2.ExecuteReader();
@@ -46,7 +92,6 @@ namespace StoreWin
             {
                 textBox2.Text = reader2[0].ToString();
             }
-
             dbConn.Close();
         }
 
@@ -66,6 +111,8 @@ namespace StoreWin
             dbCommand5.ExecuteNonQuery();
 
             dbConn.Close();
+
+            textBox1.Text = Cash_in().ToString();
         }
     }
 }

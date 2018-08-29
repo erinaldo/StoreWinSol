@@ -1,6 +1,6 @@
 ﻿namespace StoreWin.Reps
 {
-    partial class Salesinv_rep
+    partial class Sales_rep
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Salesinv_rep));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sales_rep));
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
@@ -40,21 +40,21 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1024, 624);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1026, 626);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // Salesinv_rep
+            // Sales_rep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 624);
+            this.ClientSize = new System.Drawing.Size(1026, 626);
             this.Controls.Add(this.crystalReportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Salesinv_rep";
+            this.Name = "Sales_rep";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "فاتورة بيع";
-            this.Load += new System.EventHandler(this.Salesinv_rep_Load);
+            this.Text = "تقرير المبيعات";
+            this.Load += new System.EventHandler(this.Sales_rep_Load);
             this.ResumeLayout(false);
 
         }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace StoreWin
@@ -15,7 +13,7 @@ namespace StoreWin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Sales());
+            Application.Run(new Form1());
         }
     }
 }

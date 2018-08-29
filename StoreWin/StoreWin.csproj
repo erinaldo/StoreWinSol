@@ -136,6 +136,30 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reps\CashMovrep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashMovrep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\CashMov_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\CashMov_rep.Designer.cs">
+      <DependentUpon>CashMov_rep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reps\InventoryMovrep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryMovrep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\InventoryMov_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\InventoryMov_rep.Designer.cs">
+      <DependentUpon>InventoryMov_rep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reps\Inventoryrep.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,6 +172,18 @@
     <Compile Include="Reps\Inventory_rep.Designer.cs">
       <DependentUpon>Inventory_rep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reps\Purchasesrep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Purchasesrep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\Purchases_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\Purchases_rep.Designer.cs">
+      <DependentUpon>Purchases_rep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reps\Salesinv.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +195,18 @@
     </Compile>
     <Compile Include="Reps\Salesinv_rep.Designer.cs">
       <DependentUpon>Salesinv_rep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reps\Salesrep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Salesrep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\Sales_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\Sales_rep.Designer.cs">
+      <DependentUpon>Sales_rep.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales.cs">
       <SubType>Form</SubType>
@@ -209,6 +257,20 @@
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reps\CashMovrep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CashMovrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\CashMov_rep.resx">
+      <DependentUpon>CashMov_rep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\InventoryMovrep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InventoryMovrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\InventoryMov_rep.resx">
+      <DependentUpon>InventoryMov_rep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reps\Inventoryrep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Inventoryrep.cs</LastGenOutput>
@@ -216,12 +278,26 @@
     <EmbeddedResource Include="Reps\Inventory_rep.resx">
       <DependentUpon>Inventory_rep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Purchasesrep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Purchasesrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Purchases_rep.resx">
+      <DependentUpon>Purchases_rep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reps\Salesinv.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Salesinv.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reps\Salesinv_rep.resx">
       <DependentUpon>Salesinv_rep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Salesrep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Salesrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Sales_rep.resx">
+      <DependentUpon>Sales_rep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
@@ -252,13 +328,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\if_web-space-px-png_63477 %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\pie_chartW.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\pieicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

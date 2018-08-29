@@ -63,16 +63,6 @@ namespace StoreWin.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap if_web_space_px_png_63477__1_ {
-            get {
-                object obj = ResourceManager.GetObject("if_web-space-px-png_63477 (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap pie_chartW {
             get {
                 object obj = ResourceManager.GetObject("pie_chartW", resourceCulture);

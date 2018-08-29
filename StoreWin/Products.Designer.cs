@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Products));
             this.txt_prodname = new System.Windows.Forms.TextBox();
             this.txt_purprice = new System.Windows.Forms.TextBox();
             this.txt_saleprice = new System.Windows.Forms.TextBox();
@@ -163,9 +164,11 @@
             this.Controls.Add(this.txt_purprice);
             this.Controls.Add(this.txt_prodname);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Products";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "المنتجات";
+            this.Text = "الاصناف";
             ((System.ComponentModel.ISupportInitialize)(this.grid_products)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

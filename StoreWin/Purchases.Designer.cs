@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Purchases));
             this.grid_invprods = new System.Windows.Forms.DataGridView();
             this.prodid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txt_invno = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_qty = new System.Windows.Forms.NumericUpDown();
             this.txt_prod = new System.Windows.Forms.ComboBox();
             this.txt_total = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,7 +56,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.combo_invno = new System.Windows.Forms.ComboBox();
             this.btn_search = new System.Windows.Forms.Button();
-            this.txt_qty = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
@@ -191,6 +192,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات الاصناف";
             // 
+            // txt_qty
+            // 
+            this.txt_qty.Location = new System.Drawing.Point(461, 62);
+            this.txt_qty.Name = "txt_qty";
+            this.txt_qty.Size = new System.Drawing.Size(59, 20);
+            this.txt_qty.TabIndex = 18;
+            // 
             // txt_prod
             // 
             this.txt_prod.FormattingEnabled = true;
@@ -305,13 +313,6 @@
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // txt_qty
-            // 
-            this.txt_qty.Location = new System.Drawing.Point(461, 62);
-            this.txt_qty.Name = "txt_qty";
-            this.txt_qty.Size = new System.Drawing.Size(59, 20);
-            this.txt_qty.TabIndex = 18;
-            // 
             // Purchases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,6 +333,8 @@
             this.Controls.Add(this.txt_invno);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Purchases";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "المشتريات";

@@ -43,14 +43,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.btn_cash = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +88,7 @@
             this.btn_inventory.Name = "btn_inventory";
             this.btn_inventory.Size = new System.Drawing.Size(179, 64);
             this.btn_inventory.TabIndex = 4;
-            this.btn_inventory.Text = "المخزن";
+            this.btn_inventory.Text = "المخزون";
             this.btn_inventory.UseVisualStyleBackColor = true;
             this.btn_inventory.Click += new System.EventHandler(this.btn_inventory_Click);
             // 
@@ -98,7 +100,7 @@
             this.btn_products.Name = "btn_products";
             this.btn_products.Size = new System.Drawing.Size(179, 64);
             this.btn_products.TabIndex = 5;
-            this.btn_products.Text = "المنتجات";
+            this.btn_products.Text = "الاصناف";
             this.btn_products.UseVisualStyleBackColor = true;
             this.btn_products.Click += new System.EventHandler(this.btn_products_Click);
             // 
@@ -116,6 +118,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اعداداتالمستخدمينToolStripMenuItem,
             this.تعليماتالبرنامجToolStripMenuItem,
@@ -204,9 +207,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(704, 456);
             this.dataGridView1.TabIndex = 0;
             // 
+            // p_name
+            // 
+            this.p_name.HeaderText = "العملية";
+            this.p_name.Name = "p_name";
+            this.p_name.ReadOnly = true;
+            this.p_name.Width = 500;
+            // 
+            // p_date
+            // 
+            this.p_date.HeaderText = "وقت العملية";
+            this.p_date.Name = "p_date";
+            this.p_date.ReadOnly = true;
+            this.p_date.Width = 160;
+            // 
             // statusStrip1
             // 
-            this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.statusStrip1.BackColor = System.Drawing.Color.LightGray;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 584);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -222,7 +241,7 @@
             this.btn_cash.Name = "btn_cash";
             this.btn_cash.Size = new System.Drawing.Size(179, 64);
             this.btn_cash.TabIndex = 11;
-            this.btn_cash.Text = "الدرج";
+            this.btn_cash.Text = "الخزينة";
             this.btn_cash.UseVisualStyleBackColor = true;
             this.btn_cash.Click += new System.EventHandler(this.btn_cash_Click);
             // 
@@ -243,19 +262,11 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "القائمة الرئيسية";
             // 
-            // p_name
+            // toolStripStatusLabel1
             // 
-            this.p_name.HeaderText = "العملية";
-            this.p_name.Name = "p_name";
-            this.p_name.ReadOnly = true;
-            this.p_name.Width = 500;
-            // 
-            // p_date
-            // 
-            this.p_date.HeaderText = "وقت العملية";
-            this.p_date.Name = "p_date";
-            this.p_date.ReadOnly = true;
-            this.p_date.Width = 160;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // Form1
             // 
@@ -278,6 +289,8 @@
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -305,6 +318,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn p_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn p_date;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
