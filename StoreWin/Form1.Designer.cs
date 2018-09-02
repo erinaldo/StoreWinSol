@@ -35,6 +35,11 @@
             this.btn_products = new System.Windows.Forms.Button();
             this.btn_reports = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.اعداداتالمستخدمينToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اعداداتالمستخدمينToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.تعليماتالبرنامجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.حولالبرنامجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.خروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -46,11 +51,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_salesret = new System.Windows.Forms.Button();
             this.btn_purchasesret = new System.Windows.Forms.Button();
-            this.اعداداتالمستخدمينToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اعداداتالمستخدمينToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.تعليماتالبرنامجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.حولالبرنامجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.خروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -143,6 +143,49 @@
             this.menuStrip1.Size = new System.Drawing.Size(960, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // اعداداتالمستخدمينToolStripMenuItem
+            // 
+            this.اعداداتالمستخدمينToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.اعداداتالمستخدمينToolStripMenuItem.Image = global::StoreWin.Properties.Resources.tools;
+            this.اعداداتالمستخدمينToolStripMenuItem.Name = "اعداداتالمستخدمينToolStripMenuItem";
+            this.اعداداتالمستخدمينToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.اعداداتالمستخدمينToolStripMenuItem.Text = "اعدادات البرنامج";
+            this.اعداداتالمستخدمينToolStripMenuItem.Click += new System.EventHandler(this.اعداداتالمستخدمينToolStripMenuItem_Click);
+            // 
+            // اعداداتالمستخدمينToolStripMenuItem1
+            // 
+            this.اعداداتالمستخدمينToolStripMenuItem1.Image = global::StoreWin.Properties.Resources.users;
+            this.اعداداتالمستخدمينToolStripMenuItem1.Name = "اعداداتالمستخدمينToolStripMenuItem1";
+            this.اعداداتالمستخدمينToolStripMenuItem1.Size = new System.Drawing.Size(137, 20);
+            this.اعداداتالمستخدمينToolStripMenuItem1.Text = "اعدادات المستخدمين";
+            // 
+            // تعليماتالبرنامجToolStripMenuItem
+            // 
+            this.تعليماتالبرنامجToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.تعليماتالبرنامجToolStripMenuItem.Image = global::StoreWin.Properties.Resources.help;
+            this.تعليماتالبرنامجToolStripMenuItem.Name = "تعليماتالبرنامجToolStripMenuItem";
+            this.تعليماتالبرنامجToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.تعليماتالبرنامجToolStripMenuItem.Text = "تعليمات البرنامج";
+            this.تعليماتالبرنامجToolStripMenuItem.Click += new System.EventHandler(this.تعليماتالبرنامجToolStripMenuItem_Click);
+            // 
+            // حولالبرنامجToolStripMenuItem
+            // 
+            this.حولالبرنامجToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.حولالبرنامجToolStripMenuItem.Image = global::StoreWin.Properties.Resources.pie_chart;
+            this.حولالبرنامجToolStripMenuItem.Name = "حولالبرنامجToolStripMenuItem";
+            this.حولالبرنامجToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.حولالبرنامجToolStripMenuItem.Text = "حول البرنامج";
+            this.حولالبرنامجToolStripMenuItem.Click += new System.EventHandler(this.حولالبرنامجToolStripMenuItem_Click);
+            // 
+            // خروجToolStripMenuItem
+            // 
+            this.خروجToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.خروجToolStripMenuItem.Image = global::StoreWin.Properties.Resources.if_sign_out_48726;
+            this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
+            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.خروجToolStripMenuItem.Text = "خروج";
+            this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -274,49 +317,6 @@
             this.btn_purchasesret.Text = "مرتجع شراء";
             this.btn_purchasesret.UseVisualStyleBackColor = true;
             this.btn_purchasesret.Click += new System.EventHandler(this.btn_purchasesret_Click);
-            // 
-            // اعداداتالمستخدمينToolStripMenuItem
-            // 
-            this.اعداداتالمستخدمينToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.اعداداتالمستخدمينToolStripMenuItem.Image = global::StoreWin.Properties.Resources.tools;
-            this.اعداداتالمستخدمينToolStripMenuItem.Name = "اعداداتالمستخدمينToolStripMenuItem";
-            this.اعداداتالمستخدمينToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
-            this.اعداداتالمستخدمينToolStripMenuItem.Text = "اعدادات البرنامج";
-            this.اعداداتالمستخدمينToolStripMenuItem.Click += new System.EventHandler(this.اعداداتالمستخدمينToolStripMenuItem_Click);
-            // 
-            // اعداداتالمستخدمينToolStripMenuItem1
-            // 
-            this.اعداداتالمستخدمينToolStripMenuItem1.Image = global::StoreWin.Properties.Resources.users;
-            this.اعداداتالمستخدمينToolStripMenuItem1.Name = "اعداداتالمستخدمينToolStripMenuItem1";
-            this.اعداداتالمستخدمينToolStripMenuItem1.Size = new System.Drawing.Size(137, 20);
-            this.اعداداتالمستخدمينToolStripMenuItem1.Text = "اعدادات المستخدمين";
-            // 
-            // تعليماتالبرنامجToolStripMenuItem
-            // 
-            this.تعليماتالبرنامجToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.تعليماتالبرنامجToolStripMenuItem.Image = global::StoreWin.Properties.Resources.help;
-            this.تعليماتالبرنامجToolStripMenuItem.Name = "تعليماتالبرنامجToolStripMenuItem";
-            this.تعليماتالبرنامجToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.تعليماتالبرنامجToolStripMenuItem.Text = "تعليمات البرنامج";
-            this.تعليماتالبرنامجToolStripMenuItem.Click += new System.EventHandler(this.تعليماتالبرنامجToolStripMenuItem_Click);
-            // 
-            // حولالبرنامجToolStripMenuItem
-            // 
-            this.حولالبرنامجToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.حولالبرنامجToolStripMenuItem.Image = global::StoreWin.Properties.Resources.pie_chart;
-            this.حولالبرنامجToolStripMenuItem.Name = "حولالبرنامجToolStripMenuItem";
-            this.حولالبرنامجToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.حولالبرنامجToolStripMenuItem.Text = "حول البرنامج";
-            this.حولالبرنامجToolStripMenuItem.Click += new System.EventHandler(this.حولالبرنامجToolStripMenuItem_Click);
-            // 
-            // خروجToolStripMenuItem
-            // 
-            this.خروجToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.خروجToolStripMenuItem.Image = global::StoreWin.Properties.Resources.if_sign_out_48726;
-            this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
-            this.خروجToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.خروجToolStripMenuItem.Text = "خروج";
-            this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
             // Form1
             // 

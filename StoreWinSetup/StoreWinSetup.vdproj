@@ -16,7 +16,7 @@
         "Entry"
         {
         "MsmKey" = "8:_058805F401CBB56C2FC3BDB5DA126D8C"
-        "OwnerKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+        "OwnerKey" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -34,7 +34,7 @@
         "Entry"
         {
         "MsmKey" = "8:_1CDDD48C75745FBB132BFFD57BF3D9C0"
-        "OwnerKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+        "OwnerKey" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -52,30 +52,30 @@
         "Entry"
         {
         "MsmKey" = "8:_224C074EEE6989D499E07CDE1A62503E"
-        "OwnerKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+        "OwnerKey" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_27D02478E34D1B0025063D1A8E832C86"
-        "OwnerKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+        "OwnerKey" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_2826C8E05E7E4576933D3C7E0770F7CE"
-        "OwnerKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+        "OwnerKey" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_ACE5A9D6CB5E63D7AF4A2A8D5EA9A9B1"
-        "OwnerKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+        "MsmKey" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+        "MsmKey" = "8:_99F9AE964A8D4A6CBD677EB85DDE6D61"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -88,13 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B8790C02A95C4E2883417C4467ED33A5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_ACE5A9D6CB5E63D7AF4A2A8D5EA9A9B1"
+        "OwnerKey" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -403,21 +397,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_ACE5A9D6CB5E63D7AF4A2A8D5EA9A9B1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_99F9AE964A8D4A6CBD677EB85DDE6D61"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:System.ServiceModel.Internals, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_ACE5A9D6CB5E63D7AF4A2A8D5EA9A9B1"
-                    {
-                    "Name" = "8:System.ServiceModel.Internals.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.ServiceModel.Internals.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\StoreDB.accdb"
+            "TargetName" = "8:StoreDB.accdb"
             "Tag" = "8:"
             "Folder" = "8:_83D93D3D652D4BB699BE4B6C9DE2BB6F"
             "Condition" = "8:"
@@ -431,7 +414,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -502,7 +485,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PieStore v1.0"
         "ProductCode" = "8:{174F23E8-B2A2-4401-B7AD-9F4A96C0302D}"
-        "PackageCode" = "8:{AD9F7092-191F-404E-913D-2444D6944D8A}"
+        "PackageCode" = "8:{C9C91647-EA0A-4059-9E05-438035097CB0}"
         "UpgradeCode" = "8:{6FA0DACA-74B9-4505-9F7D-D69F0106223A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -513,7 +496,7 @@
         "Manufacturer" = "8:Piewares"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:PieStore v1.0"
+        "Title" = "8:PieStore v1.1"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Piewares"
         "Keywords" = "8:"
@@ -624,13 +607,13 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B5A66437918F4C729CA109E0972B4AAF"
             {
-            "Name" = "8:PieStore v1.0"
+            "Name" = "8:PieStore v1.1"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+            "Target" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
             "Folder" = "8:_F9BA410A1A594561A73CAAD050696A6E"
             "WorkingFolder" = "8:_83D93D3D652D4BB699BE4B6C9DE2BB6F"
             "Icon" = "8:_0DFE23FBB9FE4BBDAAB0575C8877B044"
@@ -638,13 +621,13 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C3FCFCAA8BD84F2DBCBD45430BD13666"
             {
-            "Name" = "8:PieStore v1.0"
+            "Name" = "8:PieStore v1.1"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_B8790C02A95C4E2883417C4467ED33A5"
+            "Target" = "8:_7AFCCCA220A84603B2B9E10D5FA79CCF"
             "Folder" = "8:_755DAFEDFE0C4E9CB947A80FD40D5CB8"
             "WorkingFolder" = "8:_83D93D3D652D4BB699BE4B6C9DE2BB6F"
             "Icon" = "8:_0DFE23FBB9FE4BBDAAB0575C8877B044"
@@ -1049,7 +1032,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B8790C02A95C4E2883417C4467ED33A5"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7AFCCCA220A84603B2B9E10D5FA79CCF"
             {
             "SourcePath" = "8:..\\StoreWin\\obj\\Debug\\PieStoreWin.exe"
             "TargetName" = "8:"
