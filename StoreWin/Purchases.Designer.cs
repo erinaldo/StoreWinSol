@@ -155,6 +155,7 @@
             this.txt_price.Size = new System.Drawing.Size(88, 20);
             this.txt_price.TabIndex = 9;
             this.txt_price.Text = "0";
+            this.txt_price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_price_KeyPress);
             // 
             // label4
             // 

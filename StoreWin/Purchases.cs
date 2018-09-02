@@ -202,7 +202,7 @@ namespace StoreWin
                     string sSQL5 = "INSERT INTO cash(amount,relate_to,relate_id)";
                     sSQL5 += "Values(@amount,@relto,@relid);";
                     dbCommand5.CommandText = sSQL5;
-                    dbCommand5.Parameters.AddWithValue("@amount", txt_recieve.Text);
+                    dbCommand5.Parameters.AddWithValue("@amount", txt_total.Text);
                     dbCommand5.Parameters.AddWithValue("@relto", "pur");
                     dbCommand5.Parameters.AddWithValue("@relid", txt_invno.Text);
                     dbCommand5.ExecuteNonQuery();
@@ -301,6 +301,20 @@ namespace StoreWin
                 e.Handled = false;
             }
             else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(txt_recieve.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(txt_price.Text + ch, out x))
             {
                 e.Handled = true;
             }

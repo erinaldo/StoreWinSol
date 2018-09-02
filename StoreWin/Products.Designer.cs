@@ -58,6 +58,7 @@
             this.txt_purprice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_purprice.Size = new System.Drawing.Size(88, 20);
             this.txt_purprice.TabIndex = 1;
+            this.txt_purprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_purprice_KeyPress);
             // 
             // txt_saleprice
             // 
@@ -66,6 +67,7 @@
             this.txt_saleprice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_saleprice.Size = new System.Drawing.Size(88, 20);
             this.txt_saleprice.TabIndex = 2;
+            this.txt_saleprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_saleprice_KeyPress);
             // 
             // label1
             // 

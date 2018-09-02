@@ -80,14 +80,9 @@ namespace StoreWin
                 OleDbCommand dbCommand = new OleDbCommand();
                 dbCommand.Connection = dbConn;
 
-                string sSQL = "UPDATE products SET product_name=@prodname,pur_price=@pur,sal_price=@sal ";
-                sSQL += "WHERE product_id=@id;";
-                dbCommand.CommandText = sSQL;
+                string sSQL = "UPDATE products SET product_name='"+ txt_prodname.Text + "',pur_price='"+ txt_purprice.Text + "',sal_price='"+ txt_saleprice.Text + "' WHERE product_id="+ ID+"";
 
-                dbCommand.Parameters.AddWithValue("@id", ID);
-                dbCommand.Parameters.AddWithValue("@prodname", txt_prodname.Text);
-                dbCommand.Parameters.AddWithValue("@pur", txt_purprice.Text);
-                dbCommand.Parameters.AddWithValue("@sal", txt_saleprice.Text);
+                dbCommand.CommandText = sSQL;
 
                 dbCommand.ExecuteNonQuery();
 
@@ -146,6 +141,34 @@ namespace StoreWin
             btn_update.Enabled = true;
             btn_del.Enabled = true;
             btn_save.Enabled = false;
+        }
+
+        private void txt_purprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(txt_purprice.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_saleprice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            decimal x;
+            if (ch == (char)Keys.Back)
+            {
+                e.Handled = false;
+            }
+            else if (!char.IsDigit(ch) && ch != '.' || !Decimal.TryParse(txt_saleprice.Text + ch, out x))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

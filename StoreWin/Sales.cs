@@ -245,7 +245,7 @@ namespace StoreWin
                     string sSQL5 = "INSERT INTO cash(amount,relate_to,relate_id)";
                     sSQL5 += "Values(@amount,@relto,@relid);";
                     dbCommand5.CommandText = sSQL5;
-                    dbCommand5.Parameters.AddWithValue("@amount", txt_recieve.Text);
+                    dbCommand5.Parameters.AddWithValue("@amount", txt_total.Text);
                     dbCommand5.Parameters.AddWithValue("@relto", "sel");
                     dbCommand5.Parameters.AddWithValue("@relid", txt_invno.Text);
                     dbCommand5.ExecuteNonQuery();
@@ -316,7 +316,15 @@ namespace StoreWin
 
             if (reader.Read())
             {
-                qty_db_pur = Convert.ToInt32(reader[0].ToString());
+                if (reader.IsDBNull(0))
+                {
+                    qty_db_pur = 0;
+                }
+                else
+                {
+                    qty_db_pur = Convert.ToInt32(reader[0].ToString());
+                }
+                
             }
 
             OleDbCommand dbCommand2 = new OleDbCommand();
@@ -328,8 +336,16 @@ namespace StoreWin
             OleDbDataReader reader2 = dbCommand2.ExecuteReader();
 
             if (reader2.Read())
-            {
-                qty_db_sel = Convert.ToInt32(reader2[0].ToString());
+            {               
+                if (reader.IsDBNull(0))
+                {
+                    qty_db_sel = 0;
+                }
+                else
+                {
+                    qty_db_sel = Convert.ToInt32(reader2[0].ToString());
+                }
+
             }
 
             dbConn.Close();

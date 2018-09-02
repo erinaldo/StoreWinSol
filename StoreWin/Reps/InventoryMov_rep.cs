@@ -35,7 +35,7 @@ namespace StoreWin.Reps
                            ,IIf(relate_to='sel','عملية بيع بفاتورة مبيعات'))
                               AS relate_to
                            ,relate_id,action_date 
-                            FROM inventory_query ORDER BY action_date DESC";
+                            FROM inventory_query WHERE relate_id <> 0 ORDER BY action_date DESC";
             }
             else
             {
@@ -44,7 +44,7 @@ namespace StoreWin.Reps
                            ,IIf(relate_to='sel','عملية بيع بفاتورة مبيعات'))
                               AS relate_to
                            ,relate_id,action_date 
-                            FROM inventory_query WHERE(((action_date) Between #" + from + "# And #" + to + "#)) ORDER BY action_date DESC";
+                            FROM inventory_query WHERE(((action_date) Between #" + from + "# And #" + to + "#) AND WHERE relate_id <> 0) ORDER BY action_date DESC";
             }
 
 
