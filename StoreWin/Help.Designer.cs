@@ -41,7 +41,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(232, 14);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "دليل استخدام برنامج ادارة المحلات إصدار 1.0";
+            this.linkLabel1.Text = "دليل استخدام برنامج ادارة المحلات إصدار 1.1";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // Help

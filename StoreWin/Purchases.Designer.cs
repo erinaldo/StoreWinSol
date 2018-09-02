@@ -56,6 +56,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.combo_invno = new System.Windows.Forms.ComboBox();
             this.btn_search = new System.Windows.Forms.Button();
+            this.lbl_date = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
@@ -169,10 +171,10 @@
             // txt_invno
             // 
             this.txt_invno.Enabled = false;
-            this.txt_invno.Location = new System.Drawing.Point(367, 14);
+            this.txt_invno.Location = new System.Drawing.Point(390, 14);
             this.txt_invno.Name = "txt_invno";
             this.txt_invno.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txt_invno.Size = new System.Drawing.Size(88, 20);
+            this.txt_invno.Size = new System.Drawing.Size(65, 20);
             this.txt_invno.TabIndex = 15;
             // 
             // groupBox1
@@ -185,13 +187,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 66);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(603, 420);
+            this.groupBox1.Size = new System.Drawing.Size(603, 422);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات الاصناف";
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // txt_qty
             // 
@@ -211,7 +214,7 @@
             // txt_total
             // 
             this.txt_total.Enabled = false;
-            this.txt_total.Location = new System.Drawing.Point(473, 477);
+            this.txt_total.Location = new System.Drawing.Point(473, 501);
             this.txt_total.Name = "txt_total";
             this.txt_total.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_total.Size = new System.Drawing.Size(88, 20);
@@ -221,7 +224,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(567, 480);
+            this.label5.Location = new System.Drawing.Point(567, 504);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 18;
@@ -229,7 +232,7 @@
             // 
             // txt_recieve
             // 
-            this.txt_recieve.Location = new System.Drawing.Point(246, 477);
+            this.txt_recieve.Location = new System.Drawing.Point(246, 501);
             this.txt_recieve.Name = "txt_recieve";
             this.txt_recieve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_recieve.Size = new System.Drawing.Size(88, 20);
@@ -241,7 +244,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(340, 480);
+            this.label6.Location = new System.Drawing.Point(340, 504);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 20;
@@ -250,7 +253,7 @@
             // txt_remain
             // 
             this.txt_remain.Enabled = false;
-            this.txt_remain.Location = new System.Drawing.Point(12, 477);
+            this.txt_remain.Location = new System.Drawing.Point(12, 501);
             this.txt_remain.Name = "txt_remain";
             this.txt_remain.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_remain.Size = new System.Drawing.Size(88, 20);
@@ -260,7 +263,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(106, 480);
+            this.label7.Location = new System.Drawing.Point(106, 504);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 22;
@@ -278,7 +281,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(560, 521);
+            this.btn_save.Location = new System.Drawing.Point(560, 545);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(55, 23);
             this.btn_save.TabIndex = 23;
@@ -314,11 +317,31 @@
             this.btn_search.UseVisualStyleBackColor = true;
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
+            // lbl_date
+            // 
+            this.lbl_date.Enabled = false;
+            this.lbl_date.Location = new System.Drawing.Point(312, 40);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_date.Size = new System.Drawing.Size(143, 20);
+            this.lbl_date.TabIndex = 32;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(457, 43);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "تاريخ الفاتورة";
+            // 
             // Purchases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 556);
+            this.ClientSize = new System.Drawing.Size(627, 584);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lbl_date);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.combo_invno);
             this.Controls.Add(this.label8);
@@ -378,5 +401,7 @@
         private System.Windows.Forms.ComboBox combo_invno;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.NumericUpDown txt_qty;
+        private System.Windows.Forms.TextBox lbl_date;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -141,6 +141,7 @@
             this.groupBox1.Size = new System.Drawing.Size(201, 181);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // Cash
             // 

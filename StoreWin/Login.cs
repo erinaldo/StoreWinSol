@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StoreWin
@@ -62,6 +63,17 @@ namespace StoreWin
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 80, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
     }
 }
