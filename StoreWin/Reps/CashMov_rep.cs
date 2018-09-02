@@ -45,7 +45,7 @@ namespace StoreWin.Reps
                            ,IIf(relate_to='sel','عملية إدخال بفاتورة مبيعات'))
                               AS relate_to
                            ,relate_id,actiondate 
-                            FROM cash WHERE(((actiondate) Between #"+from+"# And #"+to+ "#) AND ((cash.relate_id)<> 0)) ORDER BY actiondate DESC";
+                            FROM cash WHERE(((Format(actiondate, 'Short Date')) Between #" + from+"# And #"+to+ "#) AND ((cash.relate_id)<> 0)) ORDER BY actiondate DESC";
             }
             
 

@@ -133,6 +133,8 @@
             // 
             // btn_show
             // 
+            this.btn_show.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_show.Location = new System.Drawing.Point(329, 89);
             this.btn_show.Name = "btn_show";
             this.btn_show.Size = new System.Drawing.Size(75, 23);
@@ -153,6 +155,8 @@
             // 
             // btn_print
             // 
+            this.btn_print.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_print.Location = new System.Drawing.Point(248, 89);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(75, 23);

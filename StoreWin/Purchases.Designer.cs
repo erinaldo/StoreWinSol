@@ -115,6 +115,8 @@
             // 
             // btn_add
             // 
+            this.btn_add.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Location = new System.Drawing.Point(465, 113);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(55, 23);
@@ -271,6 +273,8 @@
             // 
             // btn_new
             // 
+            this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.Location = new System.Drawing.Point(526, 12);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(89, 23);
@@ -281,6 +285,8 @@
             // 
             // btn_save
             // 
+            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.Location = new System.Drawing.Point(560, 545);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(55, 23);
@@ -309,6 +315,8 @@
             // 
             // btn_search
             // 
+            this.btn_search.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search.Location = new System.Drawing.Point(12, 12);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(48, 23);

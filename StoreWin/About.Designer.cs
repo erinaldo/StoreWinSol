@@ -49,11 +49,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 121);
+            this.label2.Location = new System.Drawing.Point(89, 121);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Pie Store Version 1.1";
+            this.label2.Text = "PieStore v1.1";
             // 
             // label3
             // 
@@ -98,7 +98,7 @@
             this.MaximizeBox = false;
             this.Name = "About";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "عن البرنامج";
+            this.Text = "PieStore v1.1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

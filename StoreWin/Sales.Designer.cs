@@ -66,6 +66,8 @@
             // 
             // btn_print
             // 
+            this.btn_print.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_print.Location = new System.Drawing.Point(456, 546);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(97, 23);
@@ -76,6 +78,8 @@
             // 
             // btn_new
             // 
+            this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.Location = new System.Drawing.Point(525, 12);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(89, 23);
@@ -86,6 +90,8 @@
             // 
             // btn_save
             // 
+            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.Location = new System.Drawing.Point(559, 546);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(55, 23);
@@ -248,6 +254,8 @@
             // 
             // btn_add
             // 
+            this.btn_add.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Location = new System.Drawing.Point(465, 113);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(55, 23);
@@ -303,6 +311,8 @@
             // 
             // btn_search
             // 
+            this.btn_search.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search.Location = new System.Drawing.Point(12, 12);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(48, 23);

@@ -62,10 +62,6 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -132,6 +128,12 @@
     </Compile>
     <Compile Include="Purchases.Designer.cs">
       <DependentUpon>Purchases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasesRet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchasesRet.Designer.cs">
+      <DependentUpon>PurchasesRet.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
@@ -217,6 +219,12 @@
     <Compile Include="Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesRet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesRet.Designer.cs">
+      <DependentUpon>SalesRet.cs</DependentUpon>
+    </Compile>
     <Compile Include="SetUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +264,9 @@
     </Compile>
     <EmbeddedResource Include="Purchases.resx">
       <DependentUpon>Purchases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasesRet.resx">
+      <DependentUpon>PurchasesRet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
@@ -305,6 +316,9 @@
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalesRet.resx">
+      <DependentUpon>SalesRet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SetUsers.resx">
       <DependentUpon>SetUsers.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,7 +352,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pieicon.ico" />
+    <None Include="Resources\pie_chart.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\if_sign-out_54460.png" />
+    <None Include="Resources\if_sign-out_48726.png" />
     <Content Include="Resources\pieicon.ico" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\tools.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
