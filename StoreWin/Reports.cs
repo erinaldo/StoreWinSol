@@ -1,5 +1,6 @@
 ﻿using StoreWin.Reps;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StoreWin
@@ -155,6 +156,49 @@ namespace StoreWin
             pur_from.Enabled = false;
             pur_to.Enabled = false;
         }
-        
+
+        private void groupBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 60, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void groupBox2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 50, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void groupBox4_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 75, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void groupBox3_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 75, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
     }
 }

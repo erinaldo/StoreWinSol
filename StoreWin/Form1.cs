@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StoreWin
@@ -53,6 +54,7 @@ namespace StoreWin
             {
                 BindProcesses();
                 this.toolStripStatusLabel1.Text = "إسم المستخدم :" +" "+ Login.User +" .. "+ "وقت الدخول :" +" "+ DateTime.Now.ToShortTimeString();
+                this.toolStripStatusLabel1.ForeColor = Color.White;
             }
         }
 
@@ -94,22 +96,7 @@ namespace StoreWin
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-            dbConn.Open();
-            OleDbCommand dbCommand3 = new OleDbCommand();
-            dbCommand3.Connection = dbConn;
 
-            string sSQL3 = "INSERT INTO Processes(process_name)";
-            sSQL3 += "Values(@p_name);";
-            dbCommand3.CommandText = sSQL3;
-
-            string p_name = "عملية خروج من البرنامج - المستخدم  '" +Login.User + "' ";
-
-            dbCommand3.Parameters.AddWithValue("@p_name", p_name);
-
-            dbCommand3.ExecuteNonQuery();
-            dbConn.Close();
-            Application.Exit();
         }
 
         private void اعداداتالمستخدمينToolStripMenuItem_Click(object sender, EventArgs e)
@@ -154,6 +141,40 @@ namespace StoreWin
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             BindProcesses();
+        }
+
+        private void groupBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 45, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void groupBox2_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 85, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void btn_purchasesret_Click(object sender, EventArgs e)
+        {
+            PurchasesRet s = new PurchasesRet();
+            s.Show();
+        }
+
+        private void btn_salesret_Click(object sender, EventArgs e)
+        {
+            SalesRet s = new SalesRet();
+            s.Show();
         }
     }
 }

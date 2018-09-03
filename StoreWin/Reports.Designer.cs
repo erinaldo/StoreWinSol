@@ -83,6 +83,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "المشتريات";
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // radioButton7
             // 
@@ -110,6 +111,8 @@
             // 
             // pur_show
             // 
+            this.pur_show.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.pur_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pur_show.Location = new System.Drawing.Point(25, 52);
             this.pur_show.Name = "pur_show";
             this.pur_show.Size = new System.Drawing.Size(54, 23);
@@ -170,6 +173,7 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "المبيعات";
+            this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
             // 
             // radioButton5
             // 
@@ -197,6 +201,8 @@
             // 
             // sal_show
             // 
+            this.sal_show.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.sal_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sal_show.Location = new System.Drawing.Point(26, 52);
             this.sal_show.Name = "sal_show";
             this.sal_show.Size = new System.Drawing.Size(54, 23);
@@ -257,6 +263,7 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "حركات الخزينة";
+            this.groupBox3.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox3_Paint);
             // 
             // radioButton2
             // 
@@ -284,6 +291,8 @@
             // 
             // cash_show
             // 
+            this.cash_show.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.cash_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cash_show.Location = new System.Drawing.Point(25, 51);
             this.cash_show.Name = "cash_show";
             this.cash_show.Size = new System.Drawing.Size(54, 23);
@@ -344,6 +353,7 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "حركات المخزن";
+            this.groupBox4.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox4_Paint);
             // 
             // radioButton3
             // 
@@ -371,6 +381,8 @@
             // 
             // inv_show
             // 
+            this.inv_show.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.inv_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inv_show.Location = new System.Drawing.Point(26, 52);
             this.inv_show.Name = "inv_show";
             this.inv_show.Size = new System.Drawing.Size(54, 23);

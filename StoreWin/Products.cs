@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StoreWin
@@ -20,16 +21,31 @@ namespace StoreWin
             btn_save.Enabled = true;
         }
 
+        private void Products_Load(object sender, EventArgs e)
+        {
+
+        }
         private void DisplayData()
         {
             OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
 
             dbConn.Open();
-            DataTable dt = new DataTable();
-            adapt = new OleDbDataAdapter("SELECT product_id AS رقم ,product_name AS الصنف ,pur_price AS شراء , sal_price AS بيع  FROM products", dbConn);
-            adapt.Fill(dt);
-            grid_products.DataSource = dt;
+            //DataTable dt = new DataTable();
+            DataSet DS = new DataSet();
+            adapt = new OleDbDataAdapter("SELECT product_id,product_name,pur_price, sal_price FROM products", dbConn);
+            adapt.Fill(DS);
+            //grid_products.DataSource = dt;
             dbConn.Close();
+
+            grid_products.Rows.Clear();
+
+            if (DS.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                {
+                    grid_products.Rows.Add(DS.Tables[0].Rows[i][0].ToString(), DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString());
+                }
+            }
         }
 
         private void ClearData()
@@ -100,18 +116,48 @@ namespace StoreWin
         {
             if (ID != 0)
             {
+                bool valid = true;
+
                 OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
                 dbConn.Open();
                 OleDbCommand dbCommand = new OleDbCommand();
+                DataSet DS1 = new DataSet();
+                DataSet DS2 = new DataSet();
                 dbCommand.Connection = dbConn;
 
-                string sSQL = "DELETE FROM products WHERE product_id=@id";
+                string sSQL1 = "SELECT * FROM purchases_d WHERE product_id="+ ID+"";
+                OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
+                DBAdapter1.SelectCommand = new OleDbCommand(sSQL1, dbConn);
+                DBAdapter1.Fill(DS1);
 
-                dbCommand.CommandText = sSQL;
+                if (DS1.Tables[0].Rows.Count > 0)
+                {
+                    valid = false;
+                }
 
-                dbCommand.Parameters.AddWithValue("@id", ID);
+                string sSQL2 = "SELECT * FROM sales_d WHERE product_id=" + ID + "";
+                OleDbDataAdapter DBAdapter2 = new OleDbDataAdapter();
+                DBAdapter2.SelectCommand = new OleDbCommand(sSQL2, dbConn);
+                DBAdapter2.Fill(DS2);
+                if (DS1.Tables[0].Rows.Count > 0)
+                {
+                    valid = false;
+                }
 
-                dbCommand.ExecuteNonQuery();
+                if (valid)
+                {
+                    string sSQL = "DELETE FROM products WHERE product_id=@id";
+
+                    dbCommand.CommandText = sSQL;
+
+                    dbCommand.Parameters.AddWithValue("@id", ID);
+
+                    dbCommand.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("!لا يمكنك حذف هذا الصنف");
+                }
 
                 dbConn.Close();
                 DisplayData();
@@ -169,6 +215,16 @@ namespace StoreWin
             {
                 e.Handled = true;
             }
+        }
+
+        private void groupBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 2, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
     }
 }

@@ -57,6 +57,8 @@
             this.btn_search = new System.Windows.Forms.Button();
             this.combo_invno = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_date = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).BeginInit();
@@ -64,7 +66,9 @@
             // 
             // btn_print
             // 
-            this.btn_print.Location = new System.Drawing.Point(456, 521);
+            this.btn_print.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_print.Location = new System.Drawing.Point(456, 546);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(97, 23);
             this.btn_print.TabIndex = 40;
@@ -74,6 +78,8 @@
             // 
             // btn_new
             // 
+            this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.Location = new System.Drawing.Point(525, 12);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(89, 23);
@@ -84,7 +90,9 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(559, 521);
+            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Location = new System.Drawing.Point(559, 546);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(55, 23);
             this.btn_save.TabIndex = 37;
@@ -95,7 +103,7 @@
             // txt_remain
             // 
             this.txt_remain.Enabled = false;
-            this.txt_remain.Location = new System.Drawing.Point(11, 477);
+            this.txt_remain.Location = new System.Drawing.Point(11, 502);
             this.txt_remain.Name = "txt_remain";
             this.txt_remain.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_remain.Size = new System.Drawing.Size(88, 20);
@@ -105,7 +113,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(105, 480);
+            this.label7.Location = new System.Drawing.Point(105, 505);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 36;
@@ -113,7 +121,7 @@
             // 
             // txt_recieve
             // 
-            this.txt_recieve.Location = new System.Drawing.Point(245, 477);
+            this.txt_recieve.Location = new System.Drawing.Point(245, 502);
             this.txt_recieve.Name = "txt_recieve";
             this.txt_recieve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_recieve.Size = new System.Drawing.Size(88, 20);
@@ -125,7 +133,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(339, 480);
+            this.label6.Location = new System.Drawing.Point(339, 505);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 34;
@@ -134,7 +142,7 @@
             // txt_total
             // 
             this.txt_total.Enabled = false;
-            this.txt_total.Location = new System.Drawing.Point(472, 477);
+            this.txt_total.Location = new System.Drawing.Point(472, 502);
             this.txt_total.Name = "txt_total";
             this.txt_total.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_total.Size = new System.Drawing.Size(88, 20);
@@ -144,7 +152,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(566, 480);
+            this.label5.Location = new System.Drawing.Point(566, 505);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 32;
@@ -160,13 +168,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(11, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 66);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox1.Size = new System.Drawing.Size(603, 420);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات الاصناف";
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // txt_qty
             // 
@@ -245,6 +254,8 @@
             // 
             // btn_add
             // 
+            this.btn_add.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_add.Location = new System.Drawing.Point(465, 113);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(55, 23);
@@ -300,6 +311,8 @@
             // 
             // btn_search
             // 
+            this.btn_search.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_search.Location = new System.Drawing.Point(12, 12);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(48, 23);
@@ -326,11 +339,31 @@
             this.label8.TabIndex = 31;
             this.label8.Text = "بحث عن فاتورة";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(456, 43);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "تاريخ الفاتورة";
+            // 
+            // lbl_date
+            // 
+            this.lbl_date.Enabled = false;
+            this.lbl_date.Location = new System.Drawing.Point(311, 40);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_date.Size = new System.Drawing.Size(143, 20);
+            this.lbl_date.TabIndex = 41;
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 556);
+            this.ClientSize = new System.Drawing.Size(625, 588);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lbl_date);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.btn_print);
             this.Controls.Add(this.combo_invno);
@@ -392,5 +425,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prodqty;
         private System.Windows.Forms.DataGridViewTextBoxColumn prodpricetotal;
         private System.Windows.Forms.NumericUpDown txt_qty;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox lbl_date;
     }
 }

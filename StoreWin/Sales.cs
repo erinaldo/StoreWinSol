@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StoreWin
@@ -144,6 +145,7 @@ namespace StoreWin
             Bindinvno();
             Bindproducts();
             txt_invno.Text = GenerateID().ToString();
+            lbl_date.Text = DateTime.Now.ToShortDateString();
         }
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -169,6 +171,8 @@ namespace StoreWin
             txt_prod.Enabled = true;
             txt_qty.Enabled = true;
             btn_add.Enabled = true;
+
+            lbl_date.Text = DateTime.Now.ToShortDateString();
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -388,6 +392,7 @@ namespace StoreWin
                 txt_total.Text = DS1.Tables[0].Rows[0][3].ToString();
                 txt_recieve.Text = DS1.Tables[0].Rows[0][4].ToString();
                 txt_remain.Text = DS1.Tables[0].Rows[0][5].ToString();
+                lbl_date.Text = DS1.Tables[0].Rows[0][1].ToString();
             }
 
             //details
@@ -441,6 +446,17 @@ namespace StoreWin
             {
                 e.Handled = true;
             }
+        }
+
+        private void groupBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 80, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
     }
 }

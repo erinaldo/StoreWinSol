@@ -75,6 +75,8 @@
             // 
             // button_login
             // 
+            this.button_login.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_login.Location = new System.Drawing.Point(133, 109);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(75, 26);
@@ -98,6 +100,7 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تسجيل الدخول";
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // pictureBox1
             // 

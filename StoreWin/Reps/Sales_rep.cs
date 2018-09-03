@@ -34,7 +34,8 @@ namespace StoreWin.Reps
             }
             else
             {
-                sSQL = @"select * FROM sales_m WHERE(((sales_date) Between #" + from + "# And #" + to + "#)) ORDER BY sales_date DESC";
+                
+                sSQL = @"select * FROM sales_m WHERE(((Format(sales_date, 'Short Date')) Between #" + from + "# And #" + to + "#)) ORDER BY sales_date DESC";
             }
 
             OleDbDataAdapter DBAdapter = new OleDbDataAdapter();

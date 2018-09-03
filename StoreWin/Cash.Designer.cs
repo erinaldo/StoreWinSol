@@ -100,6 +100,8 @@
             // 
             // button1
             // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(70, 254);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -141,6 +143,7 @@
             this.groupBox1.Size = new System.Drawing.Size(201, 181);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // Cash
             // 

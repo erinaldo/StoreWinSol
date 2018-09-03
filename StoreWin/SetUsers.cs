@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StoreWin
@@ -24,13 +25,28 @@ namespace StoreWin
             OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
 
             dbConn.Open();
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
+            DataSet DS = new DataSet();
             adapt = new OleDbDataAdapter("SELECT * FROM users", dbConn);
-            adapt.Fill(dt);
-            grid_users.DataSource = dt;
+            adapt.Fill(DS);
+            //grid_users.DataSource = dt;
             dbConn.Close();
+
+            grid_users.Rows.Clear();
+
+            if (DS.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                {
+                    grid_users.Rows.Add(DS.Tables[0].Rows[i][0].ToString(), DS.Tables[0].Rows[i][1].ToString());
+                }
+            }
         }
 
+        private void SetUsers_Load(object sender, EventArgs e)
+        {
+
+        }
         private void ClearData()
         {
             txt_user.Text = "";
@@ -94,7 +110,7 @@ namespace StoreWin
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            if (txt_user.Text != "")
+            if (txt_user.Text != "" && txt_user.Text !="admin")
             {
                 OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
                 dbConn.Open();
@@ -115,7 +131,7 @@ namespace StoreWin
             }
             else
             {
-                MessageBox.Show("اختر الصنف المراد حذفه");
+                MessageBox.Show("! خطأ في الحذف");
             }
         }
 
@@ -139,5 +155,17 @@ namespace StoreWin
             btn_del.Enabled = false;
             btn_save.Enabled = true;
         }
+
+        private void groupBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 2, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        
     }
 }
