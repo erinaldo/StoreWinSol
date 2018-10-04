@@ -19,46 +19,49 @@ namespace StoreWin.Reps
 
         private void CashMov_rep_Load(object sender, EventArgs e)
         {
-
-            from = Reports.cashfrom;
-            to = Reports.cashto;
-            type = Reports.cashtype;
-
-            string sSQL = "";
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-            DataSet DS = new DataSet();
-
-            dbConn.Open();
-            if (type == "all")
+            try
             {
-                sSQL = @"select amount,
+                from = Reports.cashfrom;
+                to = Reports.cashto;
+                type = Reports.cashtype;
+
+                string sSQL = "";
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                DataSet DS = new DataSet();
+
+                dbConn.Open();
+                if (type == "all")
+                {
+                    sSQL = @"select amount,
                             IIf(relate_to='pur','عملية دفع بفاتورة مشتريات'
                            ,IIf(relate_to='sel','عملية إدخال بفاتورة مبيعات'))
                               AS relate_to
                            ,relate_id,actiondate 
                             FROM cash WHERE relate_id <> 0 ORDER BY actiondate DESC";
-            }
-            else
-            {
-               sSQL = @"select amount,
+                }
+                else
+                {
+                    sSQL = @"select amount,
                             IIf(relate_to='pur','عملية دفع بفاتورة مشتريات'
                            ,IIf(relate_to='sel','عملية إدخال بفاتورة مبيعات'))
                               AS relate_to
                            ,relate_id,actiondate 
-                            FROM cash WHERE(((Format(actiondate, 'Short Date')) Between #" + from+"# And #"+to+ "#) AND ((cash.relate_id)<> 0)) ORDER BY actiondate DESC";
+                            FROM cash WHERE(((Format(actiondate, 'Short Date')) Between #" + from + "# And #" + to + "#) AND ((cash.relate_id)<> 0)) ORDER BY actiondate DESC";
+                }
+
+
+                OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
+                DBAdapter.SelectCommand = new OleDbCommand(sSQL, dbConn);
+                DBAdapter.Fill(DS);
+
+                dbConn.Close();
+
+                Reps.CashMovrep c1 = new Reps.CashMovrep();
+                c1.SetDataSource(DS.Tables[0]);
+                crystalReportViewer1.ReportSource = c1;
+                crystalReportViewer1.Refresh();
             }
-            
-
-            OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
-            DBAdapter.SelectCommand = new OleDbCommand(sSQL, dbConn);
-            DBAdapter.Fill(DS);
-
-            dbConn.Close();
-
-            Reps.CashMovrep c1 = new Reps.CashMovrep();
-            c1.SetDataSource(DS.Tables[0]);
-            crystalReportViewer1.ReportSource = c1;
-            crystalReportViewer1.Refresh();
+            catch { }
         }
     }
 }

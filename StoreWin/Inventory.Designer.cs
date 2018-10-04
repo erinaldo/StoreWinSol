@@ -41,7 +41,9 @@
             this.btn_show = new System.Windows.Forms.Button();
             this.combo_prod = new System.Windows.Forms.ComboBox();
             this.btn_print = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_prods)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grid_prods
@@ -55,7 +57,7 @@
             this.inv_prod_pur,
             this.inv_prod_sel,
             this.inv_prod_qty});
-            this.Grid_prods.Location = new System.Drawing.Point(12, 129);
+            this.Grid_prods.Location = new System.Drawing.Point(18, 121);
             this.Grid_prods.Name = "Grid_prods";
             this.Grid_prods.ReadOnly = true;
             this.Grid_prods.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -99,7 +101,7 @@
             // radio_one
             // 
             this.radio_one.AutoSize = true;
-            this.radio_one.Location = new System.Drawing.Point(275, 15);
+            this.radio_one.Location = new System.Drawing.Point(341, 18);
             this.radio_one.Name = "radio_one";
             this.radio_one.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radio_one.Size = new System.Drawing.Size(75, 17);
@@ -112,7 +114,7 @@
             // 
             this.radio_all.AutoSize = true;
             this.radio_all.Checked = true;
-            this.radio_all.Location = new System.Drawing.Point(367, 15);
+            this.radio_all.Location = new System.Drawing.Point(433, 18);
             this.radio_all.Name = "radio_all";
             this.radio_all.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.radio_all.Size = new System.Drawing.Size(88, 17);
@@ -125,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(419, 54);
+            this.label1.Location = new System.Drawing.Point(485, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 4;
@@ -135,7 +137,7 @@
             // 
             this.btn_show.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_show.Location = new System.Drawing.Point(329, 89);
+            this.btn_show.Location = new System.Drawing.Point(395, 92);
             this.btn_show.Name = "btn_show";
             this.btn_show.Size = new System.Drawing.Size(75, 23);
             this.btn_show.TabIndex = 5;
@@ -147,7 +149,7 @@
             // 
             this.combo_prod.Enabled = false;
             this.combo_prod.FormattingEnabled = true;
-            this.combo_prod.Location = new System.Drawing.Point(101, 51);
+            this.combo_prod.Location = new System.Drawing.Point(167, 54);
             this.combo_prod.Name = "combo_prod";
             this.combo_prod.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.combo_prod.Size = new System.Drawing.Size(312, 21);
@@ -157,7 +159,7 @@
             // 
             this.btn_print.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_print.Location = new System.Drawing.Point(248, 89);
+            this.btn_print.Location = new System.Drawing.Point(314, 92);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(75, 23);
             this.btn_print.TabIndex = 7;
@@ -165,18 +167,29 @@
             this.btn_print.UseVisualStyleBackColor = true;
             this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radio_one);
+            this.groupBox1.Controls.Add(this.Grid_prods);
+            this.groupBox1.Controls.Add(this.btn_print);
+            this.groupBox1.Controls.Add(this.radio_all);
+            this.groupBox1.Controls.Add(this.combo_prod);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btn_show);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox1.Size = new System.Drawing.Size(543, 479);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 487);
-            this.Controls.Add(this.btn_print);
-            this.Controls.Add(this.combo_prod);
-            this.Controls.Add(this.btn_show);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.radio_all);
-            this.Controls.Add(this.radio_one);
-            this.Controls.Add(this.Grid_prods);
+            this.ClientSize = new System.Drawing.Size(570, 506);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -185,8 +198,9 @@
             this.Text = "المخزون";
             this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Grid_prods)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -204,5 +218,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inv_prod_sel;
         private System.Windows.Forms.DataGridViewTextBoxColumn inv_prod_qty;
         private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

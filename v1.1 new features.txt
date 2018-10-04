@@ -1,0 +1,11 @@
+- add date to purchses invoices
+- add date to sales invoices
+- add color bolder paint in all groupboxes Graphics Library
+- update program.cs main Mutex one thread
+- Fix date problems in reports
+- update in products form Gridview products / restrict delete item regarding sales and purchases
+- update in setusers form Gridview users/ restrict delete admin user
+- add try/catch{} to event handlers
+- add SalesRet and Purchasesret Forms for Returns in sales and purchases / add two tables in database
+- add SetGeneral Form For general setting of system / add table to database
+- add general data in sales invoice

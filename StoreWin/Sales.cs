@@ -142,37 +142,45 @@ namespace StoreWin
         }
         private void Sales_Load(object sender, EventArgs e)
         {
-            Bindinvno();
-            Bindproducts();
-            txt_invno.Text = GenerateID().ToString();
-            lbl_date.Text = DateTime.Now.ToShortDateString();
+            try
+            {
+                Bindinvno();
+                Bindproducts();
+                txt_invno.Text = GenerateID().ToString();
+                lbl_date.Text = DateTime.Now.ToShortDateString();
+            }
+            catch { }
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
-            txt_invno.Text = GenerateID().ToString();
+            try
+            {
+                txt_invno.Text = GenerateID().ToString();
 
-            txt_prod.SelectedIndex = 0;
-            txt_qty.Text = "0";
-            txt_price.Text = "0";
+                txt_prod.SelectedIndex = 0;
+                txt_qty.Text = "0";
+                txt_price.Text = "0";
 
-            txt_total.Text = "0";
-            txt_recieve.Text = "0";
-            txt_remain.Text = "0";
+                txt_total.Text = "0";
+                txt_recieve.Text = "0";
+                txt_remain.Text = "0";
 
-            grid_invprods.Rows.Clear();
+                grid_invprods.Rows.Clear();
 
-            btn_save.Visible = true;
+                btn_save.Visible = true;
 
-            Bindproducts();
-            Bindinvno();
+                Bindproducts();
+                Bindinvno();
 
-            btn_save.Enabled = true;
-            txt_prod.Enabled = true;
-            txt_qty.Enabled = true;
-            btn_add.Enabled = true;
+                btn_save.Enabled = true;
+                txt_prod.Enabled = true;
+                txt_qty.Enabled = true;
+                btn_add.Enabled = true;
 
-            lbl_date.Text = DateTime.Now.ToShortDateString();
+                lbl_date.Text = DateTime.Now.ToShortDateString();
+            }
+            catch { }
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -294,131 +302,139 @@ namespace StoreWin
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            int qty_grid = 0;
-            int qty_db_pur = 0;
-            int qty_db_sel = 0;
-            int qty_db = 0;
-
-            foreach (DataGridViewRow R in grid_invprods.Rows)
+            try
             {
-                if (Convert.ToInt32(R.Cells[0].Value) == Convert.ToInt32(txt_prod.SelectedValue))
-                {
-                    qty_grid += Convert.ToInt32(R.Cells[3].Value);
-                }
-            }
+                int qty_grid = 0;
+                int qty_db_pur = 0;
+                int qty_db_sel = 0;
+                int qty_db = 0;
 
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-
-            dbConn.Open();
-            OleDbCommand dbCommand = new OleDbCommand();
-            dbCommand.Connection = dbConn;
-
-            string sSQL = "select sum(qty) from inventory where product_id = " + txt_prod.SelectedValue + " and relate_to='pur'";
-            dbCommand.CommandText = sSQL;
-
-            OleDbDataReader reader = dbCommand.ExecuteReader();
-
-            if (reader.Read())
-            {
-                if (reader.IsDBNull(0))
-                {
-                    qty_db_pur = 0;
-                }
-                else
-                {
-                    qty_db_pur = Convert.ToInt32(reader[0].ToString());
-                }
-                
-            }
-
-            OleDbCommand dbCommand2 = new OleDbCommand();
-            dbCommand2.Connection = dbConn;
-
-            string sSQL2 = "select sum(qty) from inventory where product_id = " + txt_prod.SelectedValue + " and relate_to='sel'";
-            dbCommand2.CommandText = sSQL2;
-
-            OleDbDataReader reader2 = dbCommand2.ExecuteReader();
-
-            if (reader2.Read())
-            {               
-                if (reader.IsDBNull(0))
-                {
-                    qty_db_sel = 0;
-                }
-                else
-                {
-                    qty_db_sel = Convert.ToInt32(reader2[0].ToString());
-                }
-
-            }
-
-            dbConn.Close();
-
-            qty_db = qty_db_pur - qty_db_sel;
-
-            if ((qty_db - qty_grid) >= Convert.ToInt32(txt_qty.Text))
-            {
-                grid_invprods.Rows.Add(txt_prod.SelectedValue, txt_prod.Text, txt_price.Text, txt_qty.Text, Convert.ToInt32(txt_qty.Text) *Convert.ToDecimal(txt_price.Text));
-                decimal sum = 0;
                 foreach (DataGridViewRow R in grid_invprods.Rows)
                 {
-                    sum += Convert.ToDecimal(R.Cells[4].Value);
+                    if (Convert.ToInt32(R.Cells[0].Value) == Convert.ToInt32(txt_prod.SelectedValue))
+                    {
+                        qty_grid += Convert.ToInt32(R.Cells[3].Value);
+                    }
                 }
-                txt_total.Text = sum.ToString();
-                txt_recieve.Text = sum.ToString();
-                txt_remain.Text = "0";
+
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+
+                dbConn.Open();
+                OleDbCommand dbCommand = new OleDbCommand();
+                dbCommand.Connection = dbConn;
+
+                string sSQL = "select sum(qty) from inventory where product_id = " + txt_prod.SelectedValue + " and relate_to='pur'";
+                dbCommand.CommandText = sSQL;
+
+                OleDbDataReader reader = dbCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    if (reader.IsDBNull(0))
+                    {
+                        qty_db_pur = 0;
+                    }
+                    else
+                    {
+                        qty_db_pur = Convert.ToInt32(reader[0].ToString());
+                    }
+
+                }
+
+                OleDbCommand dbCommand2 = new OleDbCommand();
+                dbCommand2.Connection = dbConn;
+
+                string sSQL2 = "select sum(qty) from inventory where product_id = " + txt_prod.SelectedValue + " and relate_to='sel'";
+                dbCommand2.CommandText = sSQL2;
+
+                OleDbDataReader reader2 = dbCommand2.ExecuteReader();
+
+                if (reader2.Read())
+                {
+                    if (reader.IsDBNull(0))
+                    {
+                        qty_db_sel = 0;
+                    }
+                    else
+                    {
+                        qty_db_sel = Convert.ToInt32(reader2[0].ToString());
+                    }
+
+                }
+
+                dbConn.Close();
+
+                qty_db = qty_db_pur - qty_db_sel;
+
+                if ((qty_db - qty_grid) >= Convert.ToInt32(txt_qty.Text))
+                {
+                    grid_invprods.Rows.Add(txt_prod.SelectedValue, txt_prod.Text, txt_price.Text, txt_qty.Text, Convert.ToInt32(txt_qty.Text) * Convert.ToDecimal(txt_price.Text));
+                    decimal sum = 0;
+                    foreach (DataGridViewRow R in grid_invprods.Rows)
+                    {
+                        sum += Convert.ToDecimal(R.Cells[4].Value);
+                    }
+                    txt_total.Text = sum.ToString();
+                    txt_recieve.Text = sum.ToString();
+                    txt_remain.Text = "0";
+                }
+                else
+                {
+                    MessageBox.Show("لا يوجد كمية كافية");
+                }
             }
-            else
-            {
-                MessageBox.Show("لا يوجد كمية كافية");
-            }
+            catch { }
         }
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            //master
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-            DataSet DS1 = new DataSet();
-            dbConn.Open();
-
-            string query1 = @"SELECT * from sales_m WHERE sales_id = " + combo_invno.SelectedValue + "";
-            OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
-            DBAdapter1.SelectCommand = new OleDbCommand(query1, dbConn);
-            DBAdapter1.Fill(DS1);
-
-            if (DS1.Tables[0].Rows.Count > 0)
+            try
             {
-                txt_invno.Text = DS1.Tables[0].Rows[0][0].ToString();
-                txt_total.Text = DS1.Tables[0].Rows[0][3].ToString();
-                txt_recieve.Text = DS1.Tables[0].Rows[0][4].ToString();
-                txt_remain.Text = DS1.Tables[0].Rows[0][5].ToString();
-                lbl_date.Text = DS1.Tables[0].Rows[0][1].ToString();
-            }
+                //master
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                DataSet DS1 = new DataSet();
+                dbConn.Open();
 
-            //details
-            DataSet DS = new DataSet();
+                string query1 = @"SELECT * from sales_m WHERE sales_id = " + combo_invno.SelectedValue + "";
+                OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
+                DBAdapter1.SelectCommand = new OleDbCommand(query1, dbConn);
+                DBAdapter1.Fill(DS1);
 
-            string query = @"SELECT * from sales_d_query WHERE sales_id = " + combo_invno.SelectedValue + "";
-            OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
-            DBAdapter.SelectCommand = new OleDbCommand(query, dbConn);
-            DBAdapter.Fill(DS);
-            dbConn.Close();
-
-            grid_invprods.Rows.Clear();
-
-            if (DS.Tables[0].Rows.Count > 0)
-            {
-                for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                if (DS1.Tables[0].Rows.Count > 0)
                 {
-                    grid_invprods.Rows.Add(DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString(), DS.Tables[0].Rows[i][4].ToString(), DS.Tables[0].Rows[i][5].ToString());
+                    txt_invno.Text = DS1.Tables[0].Rows[0][0].ToString();
+                    txt_total.Text = DS1.Tables[0].Rows[0][3].ToString();
+                    txt_recieve.Text = DS1.Tables[0].Rows[0][4].ToString();
+                    txt_remain.Text = DS1.Tables[0].Rows[0][5].ToString();
+                    lbl_date.Text = DS1.Tables[0].Rows[0][1].ToString();
                 }
-            }
 
-            btn_save.Enabled = false;
-            txt_prod.Enabled = false;
-            txt_qty.Enabled = false;
-            txt_price.Enabled = false;
-            btn_add.Enabled = false;
+                //details
+                DataSet DS = new DataSet();
+
+                string query = @"SELECT * from sales_d_query WHERE sales_id = " + combo_invno.SelectedValue + "";
+                OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
+                DBAdapter.SelectCommand = new OleDbCommand(query, dbConn);
+                DBAdapter.Fill(DS);
+                dbConn.Close();
+
+                grid_invprods.Rows.Clear();
+
+                if (DS.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                    {
+                        grid_invprods.Rows.Add(DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString(), DS.Tables[0].Rows[i][4].ToString(), DS.Tables[0].Rows[i][5].ToString());
+                    }
+                }
+
+                btn_save.Enabled = false;
+                txt_prod.Enabled = false;
+                txt_qty.Enabled = false;
+                txt_price.Enabled = false;
+                btn_add.Enabled = false;
+            }
+            catch { }
         }
 
         private void txt_prod_SelectedIndexChanged(object sender, EventArgs e)

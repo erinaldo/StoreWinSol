@@ -25,11 +25,11 @@ namespace StoreWin
             OleDbCommand dbCommand = new OleDbCommand();
             dbCommand.Connection = dbConn;
 
-            string sSQL = "SELECT * FROM users WHERE username = @username AND user_pass = @pass";
+            string sSQL = "SELECT * FROM users WHERE user_name = '"+ textBox_username.Text + "' AND user_pass = '"+ textBox_pass.Text + "'";
             dbCommand.CommandText = sSQL;
 
-            dbCommand.Parameters.AddWithValue("@username", textBox_username.Text);
-            dbCommand.Parameters.AddWithValue("@pass", textBox_pass.Text);
+            //dbCommand.Parameters.AddWithValue("@username", textBox_username.Text);
+            //dbCommand.Parameters.AddWithValue("@pass", textBox_pass.Text);
 
             OleDbDataReader reader = dbCommand.ExecuteReader();
 
