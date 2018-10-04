@@ -16,25 +16,29 @@ namespace StoreWin
 
         private void BindProcesses()
         {
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-            DataSet DS = new DataSet();
-            dbConn.Open();
-
-            string query = @"SELECT * from Processes WHERE Format(process_date, 'Short Date')=DATE() ORDER BY process_date DESC";
-            OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
-            DBAdapter.SelectCommand = new OleDbCommand(query, dbConn);
-            DBAdapter.Fill(DS);
-            dbConn.Close();
-
-            dataGridView1.Rows.Clear();
-
-            if (DS.Tables[0].Rows.Count > 0)
+            try
             {
-                for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                DataSet DS = new DataSet();
+                dbConn.Open();
+
+                string query = @"SELECT * from Processes WHERE Format(process_date, 'Short Date')=DATE() ORDER BY process_date DESC";
+                OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
+                DBAdapter.SelectCommand = new OleDbCommand(query, dbConn);
+                DBAdapter.Fill(DS);
+                dbConn.Close();
+
+                dataGridView1.Rows.Clear();
+
+                if (DS.Tables[0].Rows.Count > 0)
                 {
-                    dataGridView1.Rows.Add(DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString());
+                    for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                    {
+                        dataGridView1.Rows.Add(DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString());
+                    }
                 }
             }
+            catch { }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -101,7 +105,7 @@ namespace StoreWin
 
         private void اعداداتالمستخدمينToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SetUsers s = new SetUsers();
+            SetGeneral s = new SetGeneral();
             s.Show();
         }
 
@@ -174,6 +178,12 @@ namespace StoreWin
         private void btn_salesret_Click(object sender, EventArgs e)
         {
             SalesRet s = new SalesRet();
+            s.Show();
+        }
+
+        private void اعداداتالمستخدمينToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SetUsers s = new SetUsers();
             s.Show();
         }
     }

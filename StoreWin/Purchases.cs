@@ -16,10 +16,14 @@ namespace StoreWin
 
         private void Purchases_Load(object sender, EventArgs e)
         {
-            Bindinvno();
-            Bindproducts();
-            txt_invno.Text = GenerateID().ToString();
-            lbl_date.Text = DateTime.Now.ToShortDateString();
+            try
+            {
+                Bindinvno();
+                Bindproducts();
+                txt_invno.Text = GenerateID().ToString();
+                lbl_date.Text = DateTime.Now.ToShortDateString();
+            }
+            catch { }
         }
         private void Bindproducts()
         {
@@ -83,42 +87,50 @@ namespace StoreWin
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            grid_invprods.Rows.Add(txt_prod.SelectedValue, txt_prod.Text, txt_price.Text, txt_qty.Text, Convert.ToInt32(txt_qty.Text) * Convert.ToDecimal(txt_price.Text));
-            decimal sum = 0;
-            foreach (DataGridViewRow R in grid_invprods.Rows)
+            try
             {
-                sum += Convert.ToDecimal(R.Cells[4].Value);
+                grid_invprods.Rows.Add(txt_prod.SelectedValue, txt_prod.Text, txt_price.Text, txt_qty.Text, Convert.ToInt32(txt_qty.Text) * Convert.ToDecimal(txt_price.Text));
+                decimal sum = 0;
+                foreach (DataGridViewRow R in grid_invprods.Rows)
+                {
+                    sum += Convert.ToDecimal(R.Cells[4].Value);
+                }
+                txt_total.Text = sum.ToString();
+                txt_recieve.Text = sum.ToString();
+                txt_remain.Text = "0";
             }
-            txt_total.Text = sum.ToString();
-            txt_recieve.Text = sum.ToString();
-            txt_remain.Text = "0";
+            catch { }
         }
 
         private void btn_new_Click(object sender, EventArgs e)
         {
-            txt_invno.Text = GenerateID().ToString();
+            try
+            {
+                txt_invno.Text = GenerateID().ToString();
 
-            txt_prod.SelectedIndex = 0;
-            txt_qty.Text = "0";
-            txt_price.Text = "0";
+                txt_prod.SelectedIndex = 0;
+                txt_qty.Text = "0";
+                txt_price.Text = "0";
 
-            txt_total.Text = "0";
-            txt_recieve.Text = "0";
-            txt_remain.Text = "0";
+                txt_total.Text = "0";
+                txt_recieve.Text = "0";
+                txt_remain.Text = "0";
 
-            grid_invprods.Rows.Clear();
+                grid_invprods.Rows.Clear();
 
-            btn_save.Visible = true;
+                btn_save.Visible = true;
 
-            Bindproducts();
-            Bindinvno();
+                Bindproducts();
+                Bindinvno();
 
-            btn_save.Enabled = true;
-            txt_prod.Enabled = true;
-            txt_qty.Enabled = true;
-            txt_price.Enabled = true;
-            btn_add.Enabled = true;
-            lbl_date.Text = DateTime.Now.ToShortDateString();
+                btn_save.Enabled = true;
+                txt_prod.Enabled = true;
+                txt_qty.Enabled = true;
+                txt_price.Enabled = true;
+                btn_add.Enabled = true;
+                lbl_date.Text = DateTime.Now.ToShortDateString();
+            }
+            catch { }
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -243,49 +255,53 @@ namespace StoreWin
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            //master
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-            DataSet DS1 = new DataSet();
-            dbConn.Open();
-
-            string query1 = @"SELECT * from purchases_m WHERE purchases_id = " + combo_invno.SelectedValue + "";
-            OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
-            DBAdapter1.SelectCommand = new OleDbCommand(query1, dbConn);
-            DBAdapter1.Fill(DS1);
-
-            if (DS1.Tables[0].Rows.Count > 0)
+            try
             {
-                txt_invno.Text = DS1.Tables[0].Rows[0][0].ToString();
-                txt_total.Text = DS1.Tables[0].Rows[0][3].ToString();
-                txt_recieve.Text = DS1.Tables[0].Rows[0][4].ToString();
-                txt_remain.Text = DS1.Tables[0].Rows[0][5].ToString();
-                lbl_date.Text = DS1.Tables[0].Rows[0][1].ToString();
-            }
+                //master
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                DataSet DS1 = new DataSet();
+                dbConn.Open();
 
-            //details
-            DataSet DS = new DataSet();
+                string query1 = @"SELECT * from purchases_m WHERE purchases_id = " + combo_invno.SelectedValue + "";
+                OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
+                DBAdapter1.SelectCommand = new OleDbCommand(query1, dbConn);
+                DBAdapter1.Fill(DS1);
 
-            string query = @"SELECT * from purchases_d_query WHERE purchases_id = " + combo_invno.SelectedValue+ "";
-            OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
-            DBAdapter.SelectCommand = new OleDbCommand(query, dbConn);
-            DBAdapter.Fill(DS);
-            dbConn.Close();
-
-            grid_invprods.Rows.Clear();
-
-            if (DS.Tables[0].Rows.Count > 0)
-            {
-                for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                if (DS1.Tables[0].Rows.Count > 0)
                 {
-                    grid_invprods.Rows.Add(DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString(), DS.Tables[0].Rows[i][4].ToString(), DS.Tables[0].Rows[i][5].ToString());
+                    txt_invno.Text = DS1.Tables[0].Rows[0][0].ToString();
+                    txt_total.Text = DS1.Tables[0].Rows[0][3].ToString();
+                    txt_recieve.Text = DS1.Tables[0].Rows[0][4].ToString();
+                    txt_remain.Text = DS1.Tables[0].Rows[0][5].ToString();
+                    lbl_date.Text = DS1.Tables[0].Rows[0][1].ToString();
                 }
-            }
 
-            btn_save.Enabled = false;
-            txt_prod.Enabled = false;
-            txt_qty.Enabled = false;
-            txt_price.Enabled = false;
-            btn_add.Enabled = false;
+                //details
+                DataSet DS = new DataSet();
+
+                string query = @"SELECT * from purchases_d_query WHERE purchases_id = " + combo_invno.SelectedValue + "";
+                OleDbDataAdapter DBAdapter = new OleDbDataAdapter();
+                DBAdapter.SelectCommand = new OleDbCommand(query, dbConn);
+                DBAdapter.Fill(DS);
+                dbConn.Close();
+
+                grid_invprods.Rows.Clear();
+
+                if (DS.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                    {
+                        grid_invprods.Rows.Add(DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString(), DS.Tables[0].Rows[i][4].ToString(), DS.Tables[0].Rows[i][5].ToString());
+                    }
+                }
+
+                btn_save.Enabled = false;
+                txt_prod.Enabled = false;
+                txt_qty.Enabled = false;
+                txt_price.Enabled = false;
+                btn_add.Enabled = false;
+            }
+            catch { }
         }
 
         private void txt_recieve_KeyUp(object sender, KeyEventArgs e)

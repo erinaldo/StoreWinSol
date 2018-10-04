@@ -800,6 +800,12 @@ namespace StoreWin {
             
             private global::System.Data.DataColumn columnproduct_name;
             
+            private global::System.Data.DataColumn columnstore_name;
+            
+            private global::System.Data.DataColumn columnstore_phone;
+            
+            private global::System.Data.DataColumn columnstore_mobile;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public salesinvDataTable() {
@@ -923,6 +929,30 @@ namespace StoreWin {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn store_nameColumn {
+                get {
+                    return this.columnstore_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn store_phoneColumn {
+                get {
+                    return this.columnstore_phone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn store_mobileColumn {
+                get {
+                    return this.columnstore_mobile;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -958,7 +988,7 @@ namespace StoreWin {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public salesinvRow AddsalesinvRow(int sales_id, System.DateTime sales_date, int sales_type, decimal amount, decimal recieve, decimal remain, int product_id, int qty, decimal unitprice, decimal totalprice, string product_name) {
+            public salesinvRow AddsalesinvRow(int sales_id, System.DateTime sales_date, int sales_type, decimal amount, decimal recieve, decimal remain, int product_id, int qty, decimal unitprice, decimal totalprice, string product_name, string store_name, string store_phone, string store_mobile) {
                 salesinvRow rowsalesinvRow = ((salesinvRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         sales_id,
@@ -971,7 +1001,10 @@ namespace StoreWin {
                         qty,
                         unitprice,
                         totalprice,
-                        product_name};
+                        product_name,
+                        store_name,
+                        store_phone,
+                        store_mobile};
                 rowsalesinvRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsalesinvRow);
                 return rowsalesinvRow;
@@ -1005,6 +1038,9 @@ namespace StoreWin {
                 this.columnunitprice = base.Columns["unitprice"];
                 this.columntotalprice = base.Columns["totalprice"];
                 this.columnproduct_name = base.Columns["product_name"];
+                this.columnstore_name = base.Columns["store_name"];
+                this.columnstore_phone = base.Columns["store_phone"];
+                this.columnstore_mobile = base.Columns["store_mobile"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1032,6 +1068,12 @@ namespace StoreWin {
                 base.Columns.Add(this.columntotalprice);
                 this.columnproduct_name = new global::System.Data.DataColumn("product_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnproduct_name);
+                this.columnstore_name = new global::System.Data.DataColumn("store_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstore_name);
+                this.columnstore_phone = new global::System.Data.DataColumn("store_phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstore_phone);
+                this.columnstore_mobile = new global::System.Data.DataColumn("store_mobile", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstore_mobile);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3020,6 +3062,54 @@ namespace StoreWin {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string store_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablesalesinv.store_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'store_name\' in table \'salesinv\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesalesinv.store_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string store_phone {
+                get {
+                    try {
+                        return ((string)(this[this.tablesalesinv.store_phoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'store_phone\' in table \'salesinv\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesalesinv.store_phoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string store_mobile {
+                get {
+                    try {
+                        return ((string)(this[this.tablesalesinv.store_mobileColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'store_mobile\' in table \'salesinv\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesalesinv.store_mobileColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Issales_idNull() {
                 return this.IsNull(this.tablesalesinv.sales_idColumn);
             }
@@ -3148,6 +3238,42 @@ namespace StoreWin {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setproduct_nameNull() {
                 this[this.tablesalesinv.product_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isstore_nameNull() {
+                return this.IsNull(this.tablesalesinv.store_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setstore_nameNull() {
+                this[this.tablesalesinv.store_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isstore_phoneNull() {
+                return this.IsNull(this.tablesalesinv.store_phoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setstore_phoneNull() {
+                this[this.tablesalesinv.store_phoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isstore_mobileNull() {
+                return this.IsNull(this.tablesalesinv.store_mobileColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setstore_mobileNull() {
+                this[this.tablesalesinv.store_mobileColumn] = global::System.Convert.DBNull;
             }
         }
         

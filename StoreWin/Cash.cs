@@ -74,46 +74,54 @@ namespace StoreWin
         }
         private void Cash_Load(object sender, EventArgs e)
         {
-            textBox4.Text = Cash_out().ToString();
-
-            textBox1.Text = Cash_in().ToString();
-
-            dbConn.Open();
-
-            OleDbCommand dbCommand2 = new OleDbCommand();
-            dbCommand2.Connection = dbConn;
-
-            string sSQL2 = "SELECT actiondate from cash WHERE Format(actiondate, 'Short Date')=DATE() ORDER BY actiondate DESC";
-            //string sSQL2 = "SELECT actiondate from cash ORDER BY actiondate DESC";
-
-            dbCommand2.CommandText = sSQL2;
-
-            OleDbDataReader reader2 = dbCommand2.ExecuteReader();
-            if (reader2.Read())
+            try
             {
-                textBox2.Text = reader2[0].ToString();
+                textBox4.Text = Cash_out().ToString();
+
+                textBox1.Text = Cash_in().ToString();
+
+                dbConn.Open();
+
+                OleDbCommand dbCommand2 = new OleDbCommand();
+                dbCommand2.Connection = dbConn;
+
+                string sSQL2 = "SELECT actiondate from cash WHERE Format(actiondate, 'Short Date')=DATE() ORDER BY actiondate DESC";
+                //string sSQL2 = "SELECT actiondate from cash ORDER BY actiondate DESC";
+
+                dbCommand2.CommandText = sSQL2;
+
+                OleDbDataReader reader2 = dbCommand2.ExecuteReader();
+                if (reader2.Read())
+                {
+                    textBox2.Text = reader2[0].ToString();
+                }
+                dbConn.Close();
             }
-            dbConn.Close();
+            catch { }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-            dbConn.Open();
+            try
+            {
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                dbConn.Open();
 
-            OleDbCommand dbCommand5 = new OleDbCommand();
-            dbCommand5.Connection = dbConn;
-            string sSQL5 = "INSERT INTO cash(amount,relate_to,relate_id)";
-            sSQL5 += "Values(@amount,@relto,@relid);";
-            dbCommand5.CommandText = sSQL5;
-            dbCommand5.Parameters.AddWithValue("@amount", textBox3.Text);
-            dbCommand5.Parameters.AddWithValue("@relto", "add");
-            dbCommand5.Parameters.AddWithValue("@relid", 0);
-            dbCommand5.ExecuteNonQuery();
+                OleDbCommand dbCommand5 = new OleDbCommand();
+                dbCommand5.Connection = dbConn;
+                string sSQL5 = "INSERT INTO cash(amount,relate_to,relate_id)";
+                sSQL5 += "Values(@amount,@relto,@relid);";
+                dbCommand5.CommandText = sSQL5;
+                dbCommand5.Parameters.AddWithValue("@amount", textBox3.Text);
+                dbCommand5.Parameters.AddWithValue("@relto", "add");
+                dbCommand5.Parameters.AddWithValue("@relid", 0);
+                dbCommand5.ExecuteNonQuery();
 
-            dbConn.Close();
+                dbConn.Close();
 
-            textBox1.Text = Cash_in().ToString();
+                textBox1.Text = Cash_in().ToString();
+            }
+            catch { }
         }
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)

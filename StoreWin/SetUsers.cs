@@ -56,94 +56,110 @@ namespace StoreWin
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            if (txt_user.Text != "" && txt_pass.Text != "")
+            try
             {
-                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                dbConn.Open();
-                OleDbCommand dbCommand = new OleDbCommand();
-                dbCommand.Connection = dbConn;
+                if (txt_user.Text != "" && txt_pass.Text != "")
+                {
+                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                    dbConn.Open();
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    dbCommand.Connection = dbConn;
 
-                string sSQL = "INSERT INTO users Values(@user,@pass)";
-                dbCommand.CommandText = sSQL;
+                    string sSQL = "INSERT INTO users Values(@user,@pass)";
+                    dbCommand.CommandText = sSQL;
 
-                dbCommand.Parameters.AddWithValue("@user", txt_user.Text);
-                dbCommand.Parameters.AddWithValue("@pass", txt_pass.Text);
+                    dbCommand.Parameters.AddWithValue("@user", txt_user.Text);
+                    dbCommand.Parameters.AddWithValue("@pass", txt_pass.Text);
 
-                dbCommand.ExecuteNonQuery();
+                    dbCommand.ExecuteNonQuery();
 
-                dbConn.Close();
+                    dbConn.Close();
 
-                DisplayData();
-                ClearData();
+                    DisplayData();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("ادخل بيانات الصنف");
+                }
             }
-            else
-            {
-                MessageBox.Show("ادخل بيانات الصنف");
-            }
+            catch { }
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (txt_user.Text != "" && txt_pass.Text != "")
+            try
             {
-                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                dbConn.Open();
-                OleDbCommand dbCommand = new OleDbCommand();
-                dbCommand.Connection = dbConn;
+                if (txt_user.Text != "" && txt_pass.Text != "")
+                {
+                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                    dbConn.Open();
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    dbCommand.Connection = dbConn;
 
-                string sSQL = "UPDATE users SET user_pass='"+ txt_pass.Text + "' WHERE user_name='"+ txt_user.Text + "'";
+                    string sSQL = "UPDATE users SET user_pass='" + txt_pass.Text + "' WHERE user_name='" + txt_user.Text + "'";
 
-                dbCommand.CommandText = sSQL;
+                    dbCommand.CommandText = sSQL;
 
-                dbCommand.ExecuteNonQuery();
+                    dbCommand.ExecuteNonQuery();
 
-                dbConn.Close();
+                    dbConn.Close();
 
-                DisplayData();
-                ClearData();
+                    DisplayData();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("ادخل بيانات الصنف");
+                }
             }
-            else
-            {
-                MessageBox.Show("ادخل بيانات الصنف");
-            }
+            catch { }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            if (txt_user.Text != "" && txt_user.Text !="admin")
+            try
             {
-                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                dbConn.Open();
-                OleDbCommand dbCommand = new OleDbCommand();
-                dbCommand.Connection = dbConn;
+                if (txt_user.Text != "" && txt_user.Text != "admin")
+                {
+                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                    dbConn.Open();
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    dbCommand.Connection = dbConn;
 
-                string sSQL = "DELETE FROM users WHERE user_name=@user";
+                    string sSQL = "DELETE FROM users WHERE user_name=@user";
 
-                dbCommand.CommandText = sSQL;
+                    dbCommand.CommandText = sSQL;
 
-                dbCommand.Parameters.AddWithValue("@user", txt_user.Text);
+                    dbCommand.Parameters.AddWithValue("@user", txt_user.Text);
 
-                dbCommand.ExecuteNonQuery();
+                    dbCommand.ExecuteNonQuery();
 
-                dbConn.Close();
-                DisplayData();
-                ClearData();
+                    dbConn.Close();
+                    DisplayData();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("! خطأ في الحذف");
+                }
             }
-            else
-            {
-                MessageBox.Show("! خطأ في الحذف");
-            }
+            catch { }
         }
 
         private void grid_users_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {         
-            txt_user.Text = grid_users.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txt_pass.Text = grid_users.Rows[e.RowIndex].Cells[1].Value.ToString();
+        {
+            try
+            {
+                txt_user.Text = grid_users.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txt_pass.Text = grid_users.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            txt_user.Enabled = false;
-            btn_update.Enabled = true;
-            btn_del.Enabled = true;
-            btn_save.Enabled = false;
+                txt_user.Enabled = false;
+                btn_update.Enabled = true;
+                btn_del.Enabled = true;
+                btn_save.Enabled = false;
+            }
+            catch { }
         }
 
         private void btn_new_Click(object sender, EventArgs e)

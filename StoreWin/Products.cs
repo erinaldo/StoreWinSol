@@ -27,25 +27,29 @@ namespace StoreWin
         }
         private void DisplayData()
         {
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-
-            dbConn.Open();
-            //DataTable dt = new DataTable();
-            DataSet DS = new DataSet();
-            adapt = new OleDbDataAdapter("SELECT product_id,product_name,pur_price, sal_price FROM products", dbConn);
-            adapt.Fill(DS);
-            //grid_products.DataSource = dt;
-            dbConn.Close();
-
-            grid_products.Rows.Clear();
-
-            if (DS.Tables[0].Rows.Count > 0)
+            try
             {
-                for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+
+                dbConn.Open();
+                //DataTable dt = new DataTable();
+                DataSet DS = new DataSet();
+                adapt = new OleDbDataAdapter("SELECT product_id,product_name,pur_price, sal_price FROM products", dbConn);
+                adapt.Fill(DS);
+                //grid_products.DataSource = dt;
+                dbConn.Close();
+
+                grid_products.Rows.Clear();
+
+                if (DS.Tables[0].Rows.Count > 0)
                 {
-                    grid_products.Rows.Add(DS.Tables[0].Rows[i][0].ToString(), DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString());
+                    for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
+                    {
+                        grid_products.Rows.Add(DS.Tables[0].Rows[i][0].ToString(), DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString());
+                    }
                 }
             }
+            catch { }
         }
 
         private void ClearData()
@@ -59,114 +63,126 @@ namespace StoreWin
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            if (txt_prodname.Text != "" && txt_purprice.Text != "" && txt_saleprice.Text != "")
+            try
             {
-                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                dbConn.Open();
-                OleDbCommand dbCommand = new OleDbCommand();
-                dbCommand.Connection = dbConn;
+                if (txt_prodname.Text != "" && txt_purprice.Text != "" && txt_saleprice.Text != "")
+                {
+                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                    dbConn.Open();
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    dbCommand.Connection = dbConn;
 
-                string sSQL = "INSERT INTO products(product_name,pur_price,sal_price)";
-                sSQL += "Values(@prodname,@pur,@sal);";
-                dbCommand.CommandText = sSQL;
+                    string sSQL = "INSERT INTO products(product_name,pur_price,sal_price)";
+                    sSQL += "Values(@prodname,@pur,@sal);";
+                    dbCommand.CommandText = sSQL;
 
-                dbCommand.Parameters.AddWithValue("@prodname", txt_prodname.Text);
-                dbCommand.Parameters.AddWithValue("@pur", txt_purprice.Text);
-                dbCommand.Parameters.AddWithValue("@sal", txt_saleprice.Text);
+                    dbCommand.Parameters.AddWithValue("@prodname", txt_prodname.Text);
+                    dbCommand.Parameters.AddWithValue("@pur", txt_purprice.Text);
+                    dbCommand.Parameters.AddWithValue("@sal", txt_saleprice.Text);
 
-                dbCommand.ExecuteNonQuery();
+                    dbCommand.ExecuteNonQuery();
 
-                dbConn.Close();
+                    dbConn.Close();
 
-                DisplayData();
-                ClearData();
+                    DisplayData();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("ادخل بيانات الصنف");
+                }
             }
-            else
-            {
-                MessageBox.Show("ادخل بيانات الصنف");
-            }
+            catch { }
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (txt_prodname.Text != "" && txt_purprice.Text != "" && txt_saleprice.Text != "")
+            try
             {
-                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                dbConn.Open();
-                OleDbCommand dbCommand = new OleDbCommand();
-                dbCommand.Connection = dbConn;
+                if (txt_prodname.Text != "" && txt_purprice.Text != "" && txt_saleprice.Text != "")
+                {
+                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                    dbConn.Open();
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    dbCommand.Connection = dbConn;
 
-                string sSQL = "UPDATE products SET product_name='"+ txt_prodname.Text + "',pur_price='"+ txt_purprice.Text + "',sal_price='"+ txt_saleprice.Text + "' WHERE product_id="+ ID+"";
+                    string sSQL = "UPDATE products SET product_name='" + txt_prodname.Text + "',pur_price='" + txt_purprice.Text + "',sal_price='" + txt_saleprice.Text + "' WHERE product_id=" + ID + "";
 
-                dbCommand.CommandText = sSQL;
+                    dbCommand.CommandText = sSQL;
 
-                dbCommand.ExecuteNonQuery();
+                    dbCommand.ExecuteNonQuery();
 
-                dbConn.Close();
-                DisplayData();
-                ClearData();
+                    dbConn.Close();
+                    DisplayData();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("ادخل بيانات الصنف");
+                }
             }
-            else
-            {
-                MessageBox.Show("ادخل بيانات الصنف");
-            }
+            catch { }
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            if (ID != 0)
+            try
             {
-                bool valid = true;
-
-                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                dbConn.Open();
-                OleDbCommand dbCommand = new OleDbCommand();
-                DataSet DS1 = new DataSet();
-                DataSet DS2 = new DataSet();
-                dbCommand.Connection = dbConn;
-
-                string sSQL1 = "SELECT * FROM purchases_d WHERE product_id="+ ID+"";
-                OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
-                DBAdapter1.SelectCommand = new OleDbCommand(sSQL1, dbConn);
-                DBAdapter1.Fill(DS1);
-
-                if (DS1.Tables[0].Rows.Count > 0)
+                if (ID != 0)
                 {
-                    valid = false;
-                }
+                    bool valid = true;
 
-                string sSQL2 = "SELECT * FROM sales_d WHERE product_id=" + ID + "";
-                OleDbDataAdapter DBAdapter2 = new OleDbDataAdapter();
-                DBAdapter2.SelectCommand = new OleDbCommand(sSQL2, dbConn);
-                DBAdapter2.Fill(DS2);
-                if (DS1.Tables[0].Rows.Count > 0)
-                {
-                    valid = false;
-                }
+                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+                    dbConn.Open();
+                    OleDbCommand dbCommand = new OleDbCommand();
+                    DataSet DS1 = new DataSet();
+                    DataSet DS2 = new DataSet();
+                    dbCommand.Connection = dbConn;
 
-                if (valid)
-                {
-                    string sSQL = "DELETE FROM products WHERE product_id=@id";
+                    string sSQL1 = "SELECT * FROM purchases_d WHERE product_id=" + ID + "";
+                    OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
+                    DBAdapter1.SelectCommand = new OleDbCommand(sSQL1, dbConn);
+                    DBAdapter1.Fill(DS1);
 
-                    dbCommand.CommandText = sSQL;
+                    if (DS1.Tables[0].Rows.Count > 0)
+                    {
+                        valid = false;
+                    }
 
-                    dbCommand.Parameters.AddWithValue("@id", ID);
+                    string sSQL2 = "SELECT * FROM sales_d WHERE product_id=" + ID + "";
+                    OleDbDataAdapter DBAdapter2 = new OleDbDataAdapter();
+                    DBAdapter2.SelectCommand = new OleDbCommand(sSQL2, dbConn);
+                    DBAdapter2.Fill(DS2);
+                    if (DS1.Tables[0].Rows.Count > 0)
+                    {
+                        valid = false;
+                    }
 
-                    dbCommand.ExecuteNonQuery();
+                    if (valid)
+                    {
+                        string sSQL = "DELETE FROM products WHERE product_id=@id";
+
+                        dbCommand.CommandText = sSQL;
+
+                        dbCommand.Parameters.AddWithValue("@id", ID);
+
+                        dbCommand.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        MessageBox.Show("!لا يمكنك حذف هذا الصنف");
+                    }
+
+                    dbConn.Close();
+                    DisplayData();
+                    ClearData();
                 }
                 else
                 {
-                    MessageBox.Show("!لا يمكنك حذف هذا الصنف");
+                    MessageBox.Show("اختر الصنف المراد حذفه");
                 }
-
-                dbConn.Close();
-                DisplayData();
-                ClearData();
             }
-            else
-            {
-                MessageBox.Show("اختر الصنف المراد حذفه");
-            }
+            catch { }
         }
 
         private void btn_new_Click(object sender, EventArgs e)
@@ -179,14 +195,18 @@ namespace StoreWin
 
         private void grid_products_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            ID = Convert.ToInt32(grid_products.Rows[e.RowIndex].Cells[0].Value.ToString());
-            txt_prodname.Text = grid_products.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txt_purprice.Text = grid_products.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txt_saleprice.Text = grid_products.Rows[e.RowIndex].Cells[3].Value.ToString();
+            try
+            {
+                ID = Convert.ToInt32(grid_products.Rows[e.RowIndex].Cells[0].Value.ToString());
+                txt_prodname.Text = grid_products.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txt_purprice.Text = grid_products.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txt_saleprice.Text = grid_products.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-            btn_update.Enabled = true;
-            btn_del.Enabled = true;
-            btn_save.Enabled = false;
+                btn_update.Enabled = true;
+                btn_del.Enabled = true;
+                btn_save.Enabled = false;
+            }
+            catch { }
         }
 
         private void txt_purprice_KeyPress(object sender, KeyPressEventArgs e)

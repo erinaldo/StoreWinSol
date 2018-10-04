@@ -159,6 +159,7 @@
             this.اعداداتالمستخدمينToolStripMenuItem1.Name = "اعداداتالمستخدمينToolStripMenuItem1";
             this.اعداداتالمستخدمينToolStripMenuItem1.Size = new System.Drawing.Size(137, 20);
             this.اعداداتالمستخدمينToolStripMenuItem1.Text = "اعدادات المستخدمين";
+            this.اعداداتالمستخدمينToolStripMenuItem1.Click += new System.EventHandler(this.اعداداتالمستخدمينToolStripMenuItem1_Click);
             // 
             // تعليماتالبرنامجToolStripMenuItem
             // 
