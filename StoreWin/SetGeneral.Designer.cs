@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetGeneral));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_name = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_phone = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btn_save = new System.Windows.Forms.Button();
             this.txt_mobile = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_save = new System.Windows.Forms.Button();
+            this.txt_phone = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,39 +58,18 @@
             this.groupBox1.Text = "بيانات المحل";
             this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
-            // txt_name
+            // btn_save
             // 
-            this.txt_name.Location = new System.Drawing.Point(16, 19);
-            this.txt_name.Name = "txt_name";
-            this.txt_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txt_name.Size = new System.Drawing.Size(293, 20);
-            this.txt_name.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(342, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "إسم المحل";
-            // 
-            // txt_phone
-            // 
-            this.txt_phone.Location = new System.Drawing.Point(152, 45);
-            this.txt_phone.Name = "txt_phone";
-            this.txt_phone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txt_phone.Size = new System.Drawing.Size(157, 20);
-            this.txt_phone.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(366, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "تليفون";
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Location = new System.Drawing.Point(254, 97);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(55, 23);
+            this.btn_save.TabIndex = 10;
+            this.btn_save.Text = "حفظ";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // txt_mobile
             // 
@@ -109,17 +88,39 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "موبايل";
             // 
-            // btn_save
+            // txt_phone
             // 
-            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save.Location = new System.Drawing.Point(254, 97);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(55, 23);
-            this.btn_save.TabIndex = 10;
-            this.btn_save.Text = "حفظ";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            this.txt_phone.Location = new System.Drawing.Point(152, 45);
+            this.txt_phone.Name = "txt_phone";
+            this.txt_phone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txt_phone.Size = new System.Drawing.Size(157, 20);
+            this.txt_phone.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(366, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "تليفون";
+            // 
+            // txt_name
+            // 
+            this.txt_name.Location = new System.Drawing.Point(16, 19);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txt_name.Size = new System.Drawing.Size(293, 20);
+            this.txt_name.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(342, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "إسم المحل";
             // 
             // SetGeneral
             // 

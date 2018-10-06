@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesRet));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_qty = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.grid_invprods = new System.Windows.Forms.DataGridView();
-            this.btn_search = new System.Windows.Forms.Button();
-            this.combo_invno = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_new = new System.Windows.Forms.Button();
             this.prodchk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.prodid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodqty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodpricetotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.combo_invno = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_new = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_invprods)).BeginInit();
@@ -85,6 +87,8 @@
             // 
             this.grid_invprods.AllowUserToAddRows = false;
             this.grid_invprods.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.grid_invprods.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grid_invprods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_invprods.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prodchk,
@@ -95,62 +99,11 @@
             this.prodpricetotal});
             this.grid_invprods.Location = new System.Drawing.Point(15, 49);
             this.grid_invprods.Name = "grid_invprods";
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.grid_invprods.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.grid_invprods.Size = new System.Drawing.Size(588, 232);
             this.grid_invprods.TabIndex = 37;
-            // 
-            // btn_search
-            // 
-            this.btn_search.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_search.Location = new System.Drawing.Point(419, 19);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(48, 23);
-            this.btn_search.TabIndex = 36;
-            this.btn_search.Text = "بحث";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
-            // 
-            // combo_invno
-            // 
-            this.combo_invno.FormattingEnabled = true;
-            this.combo_invno.Location = new System.Drawing.Point(473, 22);
-            this.combo_invno.Name = "combo_invno";
-            this.combo_invno.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.combo_invno.Size = new System.Drawing.Size(88, 21);
-            this.combo_invno.TabIndex = 35;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(567, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "الفاتورة";
-            // 
-            // btn_save
-            // 
-            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save.Location = new System.Drawing.Point(478, 346);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(55, 23);
-            this.btn_save.TabIndex = 40;
-            this.btn_save.Text = "حفظ";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // btn_new
-            // 
-            this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
-            this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_new.Location = new System.Drawing.Point(539, 345);
-            this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(76, 23);
-            this.btn_new.TabIndex = 44;
-            this.btn_new.Text = "مرتجع جديد";
-            this.btn_new.UseVisualStyleBackColor = true;
-            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // prodchk
             // 
@@ -191,6 +144,63 @@
             this.prodpricetotal.HeaderText = "الاجمالي";
             this.prodpricetotal.Name = "prodpricetotal";
             this.prodpricetotal.ReadOnly = true;
+            // 
+            // btn_search
+            // 
+            this.btn_search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_search.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_search.Location = new System.Drawing.Point(419, 19);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(48, 23);
+            this.btn_search.TabIndex = 36;
+            this.btn_search.Text = "بحث";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // combo_invno
+            // 
+            this.combo_invno.FormattingEnabled = true;
+            this.combo_invno.Location = new System.Drawing.Point(473, 22);
+            this.combo_invno.Name = "combo_invno";
+            this.combo_invno.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.combo_invno.Size = new System.Drawing.Size(88, 21);
+            this.combo_invno.TabIndex = 35;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(567, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "الفاتورة";
+            // 
+            // btn_save
+            // 
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_save.Location = new System.Drawing.Point(478, 346);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(55, 23);
+            this.btn_save.TabIndex = 40;
+            this.btn_save.Text = "حفظ";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // btn_new
+            // 
+            this.btn_new.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_new.Location = new System.Drawing.Point(539, 345);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(76, 23);
+            this.btn_new.TabIndex = 44;
+            this.btn_new.Text = "مرتجع جديد";
+            this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // SalesRet
             // 

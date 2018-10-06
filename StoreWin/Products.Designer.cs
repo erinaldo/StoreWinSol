@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Products));
             this.txt_prodname = new System.Windows.Forms.TextBox();
             this.txt_purprice = new System.Windows.Forms.TextBox();
@@ -104,6 +106,7 @@
             // 
             // btn_save
             // 
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.Location = new System.Drawing.Point(269, 108);
@@ -116,6 +119,7 @@
             // 
             // btn_update
             // 
+            this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_update.Location = new System.Drawing.Point(208, 108);
@@ -128,6 +132,7 @@
             // 
             // btn_del
             // 
+            this.btn_del.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_del.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_del.Location = new System.Drawing.Point(147, 108);
@@ -142,6 +147,8 @@
             // 
             this.grid_products.AllowUserToAddRows = false;
             this.grid_products.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.grid_products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grid_products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_products.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prod_id,
@@ -152,6 +159,9 @@
             this.grid_products.Name = "grid_products";
             this.grid_products.ReadOnly = true;
             this.grid_products.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.grid_products.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.grid_products.Size = new System.Drawing.Size(452, 183);
             this.grid_products.TabIndex = 9;
             this.grid_products.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_products_RowHeaderMouseClick);
@@ -186,6 +196,7 @@
             // 
             // btn_new
             // 
+            this.btn_new.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.Location = new System.Drawing.Point(330, 108);

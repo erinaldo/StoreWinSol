@@ -21,7 +21,7 @@ namespace StoreWin
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new SalesRet());
+                Application.Run(new Reports());
             }
             else
             {

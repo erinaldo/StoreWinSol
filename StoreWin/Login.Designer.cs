@@ -75,6 +75,7 @@
             // 
             // button_login
             // 
+            this.button_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_login.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.button_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_login.Location = new System.Drawing.Point(133, 109);

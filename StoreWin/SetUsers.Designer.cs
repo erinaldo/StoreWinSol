@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetUsers));
             this.grid_users = new System.Windows.Forms.DataGridView();
+            this.user_n = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_del = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
@@ -39,8 +43,6 @@
             this.txt_user = new System.Windows.Forms.TextBox();
             this.btn_new = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.user_n = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user_p = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grid_users)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +51,8 @@
             // 
             this.grid_users.AllowUserToAddRows = false;
             this.grid_users.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.grid_users.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grid_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_users.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.user_n,
@@ -57,12 +61,30 @@
             this.grid_users.Name = "grid_users";
             this.grid_users.ReadOnly = true;
             this.grid_users.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.grid_users.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.grid_users.Size = new System.Drawing.Size(335, 207);
             this.grid_users.TabIndex = 19;
             this.grid_users.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_users_RowHeaderMouseClick);
             // 
+            // user_n
+            // 
+            this.user_n.HeaderText = "اسم المستخدم";
+            this.user_n.Name = "user_n";
+            this.user_n.ReadOnly = true;
+            this.user_n.Width = 145;
+            // 
+            // user_p
+            // 
+            this.user_p.HeaderText = "كلمة المرور";
+            this.user_p.Name = "user_p";
+            this.user_p.ReadOnly = true;
+            this.user_p.Width = 145;
+            // 
             // btn_del
             // 
+            this.btn_del.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_del.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_del.Location = new System.Drawing.Point(17, 73);
@@ -75,6 +97,7 @@
             // 
             // btn_update
             // 
+            this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_update.Location = new System.Drawing.Point(78, 73);
@@ -87,6 +110,7 @@
             // 
             // btn_save
             // 
+            this.btn_save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_save.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.Location = new System.Drawing.Point(139, 73);
@@ -131,6 +155,7 @@
             // 
             // btn_new
             // 
+            this.btn_new.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_new.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_new.Location = new System.Drawing.Point(200, 73);
@@ -159,20 +184,6 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
-            // 
-            // user_n
-            // 
-            this.user_n.HeaderText = "اسم المستخدم";
-            this.user_n.Name = "user_n";
-            this.user_n.ReadOnly = true;
-            this.user_n.Width = 145;
-            // 
-            // user_p
-            // 
-            this.user_p.HeaderText = "كلمة المرور";
-            this.user_p.Name = "user_p";
-            this.user_p.ReadOnly = true;
-            this.user_p.Width = 145;
             // 
             // SetUsers
             // 

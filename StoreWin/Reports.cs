@@ -19,9 +19,17 @@ namespace StoreWin
         public static string purto = "";
         public static string purtype = "";
 
+        public static string purretfrom = "";
+        public static string purretto = "";
+        public static string purrettype = "";
+
         public static string salfrom = "";
         public static string salto = "";
         public static string saltype = "";
+
+        public static string salretfrom = "";
+        public static string salretto = "";
+        public static string salrettype = "";
 
         public Reports()
         {
@@ -109,6 +117,44 @@ namespace StoreWin
            
         }
 
+        private void purret_show_Click(object sender, EventArgs e)
+        {
+            if (radioButton14.Checked)
+            {
+                purretfrom = purret_from.Value.ToShortDateString();
+                purretto = purret_to.Value.ToShortDateString();
+                purrettype = "";
+
+                Purchasesret_rep rep = new Purchasesret_rep();
+                rep.Show();
+            }
+            else
+            {
+                purrettype = "all";
+                Purchasesret_rep rep = new Purchasesret_rep();
+                rep.Show();
+            }
+        }
+
+        private void salret_show_Click(object sender, EventArgs e)
+        {
+            if (radioButton16.Checked)
+            {
+                salretfrom = salret_from.Value.ToShortDateString();
+                salretto = salret_to.Value.ToShortDateString();
+                salrettype = "";
+
+                Salesret_rep rep = new Salesret_rep();
+                rep.Show();
+            }
+            else
+            {
+                salrettype = "all";
+                Salesret_rep rep = new Salesret_rep();
+                rep.Show();
+            }
+        }
+
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             cash_from.Enabled = false;
@@ -157,13 +203,37 @@ namespace StoreWin
             pur_to.Enabled = false;
         }
 
+        private void radioButton14_CheckedChanged(object sender, EventArgs e)
+        {
+            purret_from.Enabled = true;
+            purret_to.Enabled = true;
+        }
+
+        private void radioButton13_CheckedChanged(object sender, EventArgs e)
+        {
+            purret_from.Enabled = false;
+            purret_to.Enabled = false;
+        }
+
+        private void radioButton16_CheckedChanged(object sender, EventArgs e)
+        {
+            salret_from.Enabled = true;
+            salret_to.Enabled = true;
+        }
+
+        private void radioButton15_CheckedChanged(object sender, EventArgs e)
+        {
+            salret_from.Enabled = false;
+            salret_to.Enabled = false;
+        }
+
         private void groupBox1_Paint(object sender, PaintEventArgs e)
         {
             Graphics gfx = e.Graphics;
             Pen p = new Pen(Color.Orange, 1);
             gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
-            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 60, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 90, 5);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
@@ -174,7 +244,7 @@ namespace StoreWin
             Pen p = new Pen(Color.Orange, 1);
             gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
-            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 50, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 80, 5);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
@@ -200,5 +270,49 @@ namespace StoreWin
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
+
+        private void groupBox6_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 90, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void groupBox5_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 100, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void groupBox8_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 80, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }
+
+        private void groupBox7_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics gfx = e.Graphics;
+            Pen p = new Pen(Color.Orange, 1);
+            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
+            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 90, 5);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
+            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
+        }      
     }
 }

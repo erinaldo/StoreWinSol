@@ -87,11 +87,11 @@
     <Compile Include="Cash.Designer.cs">
       <DependentUpon>Cash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Help.cs">
       <SubType>Form</SubType>
@@ -181,11 +181,29 @@
     <Compile Include="Reps\Inventory_rep.Designer.cs">
       <DependentUpon>Inventory_rep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reps\PurchasesItems_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\PurchasesItems_rep.Designer.cs">
+      <DependentUpon>PurchasesItems_rep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reps\Purchasesrep.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Purchasesrep.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\Purchasesretrep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Purchasesretrep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\Purchasesret_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\Purchasesret_rep.Designer.cs">
+      <DependentUpon>Purchasesret_rep.cs</DependentUpon>
     </Compile>
     <Compile Include="Reps\Purchases_rep.cs">
       <SubType>Form</SubType>
@@ -205,11 +223,29 @@
     <Compile Include="Reps\Salesinv_rep.Designer.cs">
       <DependentUpon>Salesinv_rep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reps\SalesItems_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\SalesItems_rep.Designer.cs">
+      <DependentUpon>SalesItems_rep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reps\Salesrep.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Salesrep.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\Salesretrep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Salesretrep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reps\Salesret_rep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reps\Salesret_rep.Designer.cs">
+      <DependentUpon>Salesret_rep.cs</DependentUpon>
     </Compile>
     <Compile Include="Reps\Sales_rep.cs">
       <SubType>Form</SubType>
@@ -247,8 +283,8 @@
     <EmbeddedResource Include="Cash.resx">
       <DependentUpon>Cash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help.resx">
       <DependentUpon>Help.cs</DependentUpon>
@@ -302,9 +338,19 @@
     <EmbeddedResource Include="Reps\Inventory_rep.resx">
       <DependentUpon>Inventory_rep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reps\PurchasesItems_rep.resx">
+      <DependentUpon>PurchasesItems_rep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reps\Purchasesrep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Purchasesrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Purchasesretrep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Purchasesretrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Purchasesret_rep.resx">
+      <DependentUpon>Purchasesret_rep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reps\Purchases_rep.resx">
       <DependentUpon>Purchases_rep.cs</DependentUpon>
@@ -316,9 +362,19 @@
     <EmbeddedResource Include="Reps\Salesinv_rep.resx">
       <DependentUpon>Salesinv_rep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reps\SalesItems_rep.resx">
+      <DependentUpon>SalesItems_rep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reps\Salesrep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Salesrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Salesretrep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Salesretrep.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reps\Salesret_rep.resx">
+      <DependentUpon>Salesret_rep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reps\Sales_rep.resx">
       <DependentUpon>Sales_rep.cs</DependentUpon>
