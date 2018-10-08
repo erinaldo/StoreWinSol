@@ -23,6 +23,10 @@ namespace StoreWin
         public static string purretto = "";
         public static string purrettype = "";
 
+        public static string puritemsfrom = "";
+        public static string puritemsto = "";
+        public static string puritemstype = "";
+
         public static string salfrom = "";
         public static string salto = "";
         public static string saltype = "";
@@ -30,6 +34,10 @@ namespace StoreWin
         public static string salretfrom = "";
         public static string salretto = "";
         public static string salrettype = "";
+
+        public static string salitemsfrom = "";
+        public static string salitemsto = "";
+        public static string salitemstype = "";
 
         public Reports()
         {
@@ -155,6 +163,44 @@ namespace StoreWin
             }
         }
 
+        private void puritems_show_Click(object sender, EventArgs e)
+        {
+            if (radioButton10.Checked)
+            {
+                puritemsfrom = puritems_from.Value.ToShortDateString();
+                puritemsto = puritems_to.Value.ToShortDateString();
+                puritemstype = "";
+
+                PurchasesItems_rep rep = new PurchasesItems_rep();
+                rep.Show();
+            }
+            else
+            {
+                puritemstype = "all";
+                PurchasesItems_rep rep = new PurchasesItems_rep();
+                rep.Show();
+            }
+        }
+
+        private void salitems_show_Click(object sender, EventArgs e)
+        {
+            if (radioButton12.Checked)
+            {
+                salitemsfrom = salitems_from.Value.ToShortDateString();
+                salitemsto = salitems_to.Value.ToShortDateString();
+                salitemstype = "";
+
+                SalesItems_rep rep = new SalesItems_rep();
+                rep.Show();
+            }
+            else
+            {
+                salitemstype = "all";
+                SalesItems_rep rep = new SalesItems_rep();
+                rep.Show();
+            }
+        }
+
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             cash_from.Enabled = false;
@@ -225,6 +271,30 @@ namespace StoreWin
         {
             salret_from.Enabled = false;
             salret_to.Enabled = false;
+        }
+
+        private void radioButton10_CheckedChanged(object sender, EventArgs e)
+        {
+            puritems_from.Enabled = true;
+            puritems_to.Enabled = true;
+        }
+
+        private void radioButton9_CheckedChanged(object sender, EventArgs e)
+        {
+            puritems_from.Enabled = false;
+            puritems_to.Enabled = false;
+        }
+
+        private void radioButton12_CheckedChanged(object sender, EventArgs e)
+        {
+            salitems_from.Enabled = true;
+            salitems_to.Enabled = true;
+        }
+
+        private void radioButton11_CheckedChanged(object sender, EventArgs e)
+        {
+            salitems_from.Enabled = false;
+            salitems_to.Enabled = false;
         }
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)
@@ -313,6 +383,6 @@ namespace StoreWin
             gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 90, 5);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
             gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
-        }      
+        }
     }
 }

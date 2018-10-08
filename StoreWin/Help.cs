@@ -14,8 +14,12 @@ namespace StoreWin
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string filename = "PieStore v1.0_UserGuide.pdf";
-            Process.Start(filename);
+            try
+            {
+                string filename = "PieStore v1.1_UserGuide.pdf";
+                Process.Start(filename);
+            }
+            catch { }
         }
 
         private void groupBox1_Paint(object sender, PaintEventArgs e)

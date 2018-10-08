@@ -11,4 +11,3 @@
 - add general data in sales invoice
 - update Reports form / add Product sales and purchases / add returns sales and purchases
 - update Main Form Grid Style
-- 

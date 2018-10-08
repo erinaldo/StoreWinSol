@@ -68,7 +68,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.puritems_to = new System.Windows.Forms.DateTimePicker();
-            this.puritems_form = new System.Windows.Forms.DateTimePicker();
+            this.puritems_from = new System.Windows.Forms.DateTimePicker();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.radioButton12 = new System.Windows.Forms.RadioButton();
@@ -76,7 +76,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.salitems_to = new System.Windows.Forms.DateTimePicker();
-            this.salitems_form = new System.Windows.Forms.DateTimePicker();
+            this.salitems_from = new System.Windows.Forms.DateTimePicker();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.radioButton13 = new System.Windows.Forms.RadioButton();
             this.radioButton14 = new System.Windows.Forms.RadioButton();
@@ -475,7 +475,7 @@
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.puritems_to);
-            this.groupBox5.Controls.Add(this.puritems_form);
+            this.groupBox5.Controls.Add(this.puritems_from);
             this.groupBox5.Location = new System.Drawing.Point(386, 102);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -494,6 +494,7 @@
             this.radioButton9.TabIndex = 12;
             this.radioButton9.Text = "شامل";
             this.radioButton9.UseVisualStyleBackColor = true;
+            this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
             // 
             // radioButton10
             // 
@@ -506,6 +507,7 @@
             this.radioButton10.TabStop = true;
             this.radioButton10.Text = "محدد";
             this.radioButton10.UseVisualStyleBackColor = true;
+            this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
             // 
             // puritems_show
             // 
@@ -518,6 +520,7 @@
             this.puritems_show.TabIndex = 4;
             this.puritems_show.Text = "عرض";
             this.puritems_show.UseVisualStyleBackColor = true;
+            this.puritems_show.Click += new System.EventHandler(this.puritems_show_Click);
             // 
             // label9
             // 
@@ -546,14 +549,14 @@
             this.puritems_to.Size = new System.Drawing.Size(98, 20);
             this.puritems_to.TabIndex = 1;
             // 
-            // puritems_form
+            // puritems_from
             // 
-            this.puritems_form.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.puritems_form.Location = new System.Drawing.Point(226, 54);
-            this.puritems_form.Name = "puritems_form";
-            this.puritems_form.RightToLeftLayout = true;
-            this.puritems_form.Size = new System.Drawing.Size(98, 20);
-            this.puritems_form.TabIndex = 0;
+            this.puritems_from.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.puritems_from.Location = new System.Drawing.Point(226, 54);
+            this.puritems_from.Name = "puritems_from";
+            this.puritems_from.RightToLeftLayout = true;
+            this.puritems_from.Size = new System.Drawing.Size(98, 20);
+            this.puritems_from.TabIndex = 0;
             // 
             // groupBox6
             // 
@@ -563,7 +566,7 @@
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Controls.Add(this.salitems_to);
-            this.groupBox6.Controls.Add(this.salitems_form);
+            this.groupBox6.Controls.Add(this.salitems_from);
             this.groupBox6.Location = new System.Drawing.Point(12, 102);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -582,6 +585,7 @@
             this.radioButton11.TabIndex = 10;
             this.radioButton11.Text = "شامل";
             this.radioButton11.UseVisualStyleBackColor = true;
+            this.radioButton11.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged);
             // 
             // radioButton12
             // 
@@ -594,6 +598,7 @@
             this.radioButton12.TabStop = true;
             this.radioButton12.Text = "محدد";
             this.radioButton12.UseVisualStyleBackColor = true;
+            this.radioButton12.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged);
             // 
             // salitems_show
             // 
@@ -606,6 +611,7 @@
             this.salitems_show.TabIndex = 4;
             this.salitems_show.Text = "عرض";
             this.salitems_show.UseVisualStyleBackColor = true;
+            this.salitems_show.Click += new System.EventHandler(this.salitems_show_Click);
             // 
             // label11
             // 
@@ -634,14 +640,14 @@
             this.salitems_to.Size = new System.Drawing.Size(98, 20);
             this.salitems_to.TabIndex = 1;
             // 
-            // salitems_form
+            // salitems_from
             // 
-            this.salitems_form.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.salitems_form.Location = new System.Drawing.Point(227, 54);
-            this.salitems_form.Name = "salitems_form";
-            this.salitems_form.RightToLeftLayout = true;
-            this.salitems_form.Size = new System.Drawing.Size(98, 20);
-            this.salitems_form.TabIndex = 0;
+            this.salitems_from.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.salitems_from.Location = new System.Drawing.Point(227, 54);
+            this.salitems_from.Name = "salitems_from";
+            this.salitems_from.RightToLeftLayout = true;
+            this.salitems_from.Size = new System.Drawing.Size(98, 20);
+            this.salitems_from.TabIndex = 0;
             // 
             // groupBox7
             // 
@@ -906,7 +912,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker puritems_to;
-        private System.Windows.Forms.DateTimePicker puritems_form;
+        private System.Windows.Forms.DateTimePicker puritems_from;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton radioButton11;
         private System.Windows.Forms.RadioButton radioButton12;
@@ -914,7 +920,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker salitems_to;
-        private System.Windows.Forms.DateTimePicker salitems_form;
+        private System.Windows.Forms.DateTimePicker salitems_from;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RadioButton radioButton13;
         private System.Windows.Forms.RadioButton radioButton14;
