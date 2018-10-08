@@ -9,3 +9,5 @@
 - add SalesRet and Purchasesret Forms for Returns in sales and purchases / add two tables in database
 - add SetGeneral Form For general setting of system / add table to database
 - add general data in sales invoice
+- update Reports form / add Product sales and purchases / add returns sales and purchases
+- update Main Form Grid Style

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.Grid_prods = new System.Windows.Forms.DataGridView();
             this.inv_prod_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +52,8 @@
             // 
             this.Grid_prods.AllowUserToAddRows = false;
             this.Grid_prods.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.Grid_prods.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Grid_prods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_prods.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.inv_prod_id,
@@ -61,6 +65,9 @@
             this.Grid_prods.Name = "Grid_prods";
             this.Grid_prods.ReadOnly = true;
             this.Grid_prods.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Grid_prods.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Grid_prods.Size = new System.Drawing.Size(503, 338);
             this.Grid_prods.TabIndex = 0;
             // 
@@ -135,6 +142,7 @@
             // 
             // btn_show
             // 
+            this.btn_show.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_show.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_show.Location = new System.Drawing.Point(395, 92);
@@ -157,6 +165,7 @@
             // 
             // btn_print
             // 
+            this.btn_print.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_print.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_print.Location = new System.Drawing.Point(314, 92);

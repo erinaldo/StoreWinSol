@@ -1,6 +1,6 @@
 ﻿namespace StoreWin
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btn_sales = new System.Windows.Forms.Button();
             this.btn_purchases = new System.Windows.Forms.Button();
             this.btn_inventory = new System.Windows.Forms.Button();
@@ -43,14 +45,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btn_cash = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_salesret = new System.Windows.Forms.Button();
             this.btn_purchasesret = new System.Windows.Forms.Button();
+            this.p_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -203,6 +205,7 @@
             // 
             // btn_refresh
             // 
+            this.btn_refresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_refresh.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
             this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_refresh.Location = new System.Drawing.Point(596, 37);
@@ -217,6 +220,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.p_name,
@@ -224,22 +229,11 @@
             this.dataGridView1.Location = new System.Drawing.Point(16, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Size = new System.Drawing.Size(704, 437);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // p_name
-            // 
-            this.p_name.HeaderText = "العملية";
-            this.p_name.Name = "p_name";
-            this.p_name.ReadOnly = true;
-            this.p_name.Width = 500;
-            // 
-            // p_date
-            // 
-            this.p_date.HeaderText = "وقت العملية";
-            this.p_date.Name = "p_date";
-            this.p_date.ReadOnly = true;
-            this.p_date.Width = 160;
             // 
             // statusStrip1
             // 
@@ -319,6 +313,20 @@
             this.btn_purchasesret.UseVisualStyleBackColor = true;
             this.btn_purchasesret.Click += new System.EventHandler(this.btn_purchasesret_Click);
             // 
+            // p_date
+            // 
+            this.p_date.HeaderText = "وقت العملية";
+            this.p_date.Name = "p_date";
+            this.p_date.ReadOnly = true;
+            this.p_date.Width = 160;
+            // 
+            // p_name
+            // 
+            this.p_name.HeaderText = "العملية";
+            this.p_name.Name = "p_name";
+            this.p_name.ReadOnly = true;
+            this.p_name.Width = 500;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,12 +374,12 @@
         private System.Windows.Forms.ToolStripMenuItem خروجToolStripMenuItem;
         private System.Windows.Forms.Button btn_refresh;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn p_date;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button btn_salesret;
         private System.Windows.Forms.Button btn_purchasesret;
         private System.Windows.Forms.ToolStripMenuItem اعداداتالمستخدمينToolStripMenuItem1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn p_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn p_date;
     }
 }
 
