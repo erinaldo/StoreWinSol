@@ -1,7 +1,6 @@
-﻿using System;
-using System.Configuration;
+﻿using StoreWin.App_Code;
+using System;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,45 +8,39 @@ namespace StoreWin
 {
     public partial class Products : Form
     {
-        OleDbDataAdapter adapt;
+        Connection con = new Connection();
         int ID = 0;
 
         public Products()
         {
             InitializeComponent();
+        }
+
+        private void Products_Load(object sender, EventArgs e)
+        {
             DisplayData();
             btn_update.Enabled = false;
             btn_del.Enabled = false;
             btn_save.Enabled = true;
         }
-
-        private void Products_Load(object sender, EventArgs e)
-        {
-
-        }
         private void DisplayData()
         {
             try
             {
-                OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-
-                dbConn.Open();
-                //DataTable dt = new DataTable();
                 DataSet DS = new DataSet();
-                adapt = new OleDbDataAdapter("SELECT product_id,product_name,pur_price, sal_price FROM products", dbConn);
-                adapt.Fill(DS);
-                //grid_products.DataSource = dt;
-                dbConn.Close();
+
+                DS = con.Select("SELECT product_id,product_name,pur_price, sal_price FROM products", "prods");
 
                 grid_products.Rows.Clear();
 
-                if (DS.Tables[0].Rows.Count > 0)
+                if (DS.Tables["prods"].Rows.Count > 0)
                 {
                     for (int i = 0; i < DS.Tables[0].Rows.Count; i++)
                     {
                         grid_products.Rows.Add(DS.Tables[0].Rows[i][0].ToString(), DS.Tables[0].Rows[i][1].ToString(), DS.Tables[0].Rows[i][2].ToString(), DS.Tables[0].Rows[i][3].ToString());
                     }
                 }
+                DS.Clear();
             }
             catch { }
         }
@@ -67,22 +60,7 @@ namespace StoreWin
             {
                 if (txt_prodname.Text != "" && txt_purprice.Text != "" && txt_saleprice.Text != "")
                 {
-                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                    dbConn.Open();
-                    OleDbCommand dbCommand = new OleDbCommand();
-                    dbCommand.Connection = dbConn;
-
-                    string sSQL = "INSERT INTO products(product_name,pur_price,sal_price)";
-                    sSQL += "Values(@prodname,@pur,@sal);";
-                    dbCommand.CommandText = sSQL;
-
-                    dbCommand.Parameters.AddWithValue("@prodname", txt_prodname.Text);
-                    dbCommand.Parameters.AddWithValue("@pur", txt_purprice.Text);
-                    dbCommand.Parameters.AddWithValue("@sal", txt_saleprice.Text);
-
-                    dbCommand.ExecuteNonQuery();
-
-                    dbConn.Close();
+                    con.Excute("INSERT INTO products(product_name,pur_price,sal_price) Values('"+ txt_prodname.Text + "','"+ txt_purprice.Text + "','"+ txt_saleprice.Text + "');");
 
                     DisplayData();
                     ClearData();
@@ -101,18 +79,8 @@ namespace StoreWin
             {
                 if (txt_prodname.Text != "" && txt_purprice.Text != "" && txt_saleprice.Text != "")
                 {
-                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                    dbConn.Open();
-                    OleDbCommand dbCommand = new OleDbCommand();
-                    dbCommand.Connection = dbConn;
+                    con.Excute("UPDATE products SET product_name='" + txt_prodname.Text + "',pur_price='" + txt_purprice.Text + "',sal_price='" + txt_saleprice.Text + "' WHERE product_id=" + ID + ";");
 
-                    string sSQL = "UPDATE products SET product_name='" + txt_prodname.Text + "',pur_price='" + txt_purprice.Text + "',sal_price='" + txt_saleprice.Text + "' WHERE product_id=" + ID + "";
-
-                    dbCommand.CommandText = sSQL;
-
-                    dbCommand.ExecuteNonQuery();
-
-                    dbConn.Close();
                     DisplayData();
                     ClearData();
                 }
@@ -131,49 +99,31 @@ namespace StoreWin
                 if (ID != 0)
                 {
                     bool valid = true;
-
-                    OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
-                    dbConn.Open();
-                    OleDbCommand dbCommand = new OleDbCommand();
                     DataSet DS1 = new DataSet();
                     DataSet DS2 = new DataSet();
-                    dbCommand.Connection = dbConn;
 
-                    string sSQL1 = "SELECT * FROM purchases_d WHERE product_id=" + ID + "";
-                    OleDbDataAdapter DBAdapter1 = new OleDbDataAdapter();
-                    DBAdapter1.SelectCommand = new OleDbCommand(sSQL1, dbConn);
-                    DBAdapter1.Fill(DS1);
+                    DS1 = con.Select("SELECT * FROM purchases_d WHERE product_id=" + ID + "","pur_d");
 
-                    if (DS1.Tables[0].Rows.Count > 0)
+                    if (DS1.Tables["pur_d"].Rows.Count > 0)
                     {
                         valid = false;
                     }
 
-                    string sSQL2 = "SELECT * FROM sales_d WHERE product_id=" + ID + "";
-                    OleDbDataAdapter DBAdapter2 = new OleDbDataAdapter();
-                    DBAdapter2.SelectCommand = new OleDbCommand(sSQL2, dbConn);
-                    DBAdapter2.Fill(DS2);
-                    if (DS1.Tables[0].Rows.Count > 0)
+                    DS1 = con.Select("SELECT * FROM sales_d WHERE product_id=" + ID + "", "sal_d");
+                   
+                    if (DS1.Tables["sal_d"].Rows.Count > 0)
                     {
                         valid = false;
                     }
 
                     if (valid)
                     {
-                        string sSQL = "DELETE FROM products WHERE product_id=@id";
-
-                        dbCommand.CommandText = sSQL;
-
-                        dbCommand.Parameters.AddWithValue("@id", ID);
-
-                        dbCommand.ExecuteNonQuery();
+                        con.Excute("DELETE FROM products WHERE product_id="+ ID + ";");                      
                     }
                     else
                     {
                         MessageBox.Show("!لا يمكنك حذف هذا الصنف");
                     }
-
-                    dbConn.Close();
                     DisplayData();
                     ClearData();
                 }
@@ -235,16 +185,6 @@ namespace StoreWin
             {
                 e.Handled = true;
             }
-        }
-
-        private void groupBox1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics gfx = e.Graphics;
-            Pen p = new Pen(Color.Orange, 1);
-            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
-            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 2, 5);
-            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
-            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
     }
 }

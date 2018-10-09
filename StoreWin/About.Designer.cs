@@ -55,7 +55,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "PieStore v1.1";
+            this.label2.Text = "PieStore v1.2";
             // 
             // label3
             // 
@@ -97,8 +97,7 @@
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox1.Size = new System.Drawing.Size(229, 209);
             this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
+            this.groupBox1.TabStop = false;          
             // 
             // About
             // 
@@ -111,7 +110,7 @@
             this.MaximizeBox = false;
             this.Name = "About";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PieStore v1.1";
+            this.Text = "PieStore v1.2";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

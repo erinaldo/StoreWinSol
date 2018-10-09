@@ -226,7 +226,6 @@
             this.groupBox1.Size = new System.Drawing.Size(488, 341);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // Products
             // 

@@ -191,7 +191,6 @@
             this.groupBox1.Size = new System.Drawing.Size(543, 479);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // Inventory
             // 

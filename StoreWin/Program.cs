@@ -6,10 +6,6 @@ namespace StoreWin
 {
     static class Program
     {
-
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         static Mutex m;
         [STAThread]
         static void Main()

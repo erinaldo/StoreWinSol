@@ -43,7 +43,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(232, 14);
             this.linkLabel1.TabIndex = 0;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "دليل استخدام برنامج ادارة المحلات إصدار 1.1";
+            this.linkLabel1.Text = "دليل استخدام برنامج ادارة المحلات إصدار 1.2";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // groupBox1
@@ -55,7 +55,6 @@
             this.groupBox1.Size = new System.Drawing.Size(266, 66);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // Help
             // 

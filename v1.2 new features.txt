@@ -1,0 +1,2 @@
+- PieStore v1.2  initiate. with update code strategy
+- add Connection.cs Model class to manage access data from and to database.

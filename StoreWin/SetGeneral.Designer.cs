@@ -55,8 +55,7 @@
             this.groupBox1.Size = new System.Drawing.Size(422, 138);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "بيانات المحل";
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
+            this.groupBox1.Text = "بيانات المحل";           
             // 
             // btn_save
             // 

@@ -119,7 +119,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "فواتير المشتريات";
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // radioButton7
             // 
@@ -210,7 +209,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "فواتير المبيعات";
-            this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
             // 
             // radioButton5
             // 
@@ -301,7 +299,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "حركات الخزينة";
-            this.groupBox3.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox3_Paint);
             // 
             // radioButton2
             // 
@@ -392,7 +389,6 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "حركات المخزن";
-            this.groupBox4.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox4_Paint);
             // 
             // radioButton3
             // 
@@ -483,7 +479,6 @@
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "المشتريات (اصناف)";
-            this.groupBox5.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox5_Paint);
             // 
             // radioButton9
             // 
@@ -574,7 +569,6 @@
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "المبيعات (اصناف)";
-            this.groupBox6.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox6_Paint);
             // 
             // radioButton11
             // 
@@ -665,7 +659,6 @@
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "مرتجع المشتريات";
-            this.groupBox7.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox7_Paint);
             // 
             // radioButton13
             // 
@@ -756,7 +749,6 @@
             this.groupBox8.TabIndex = 7;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "مرتجع المبيعات";
-            this.groupBox8.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox8_Paint);
             // 
             // radioButton15
             // 

@@ -45,14 +45,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btn_cash = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_salesret = new System.Windows.Forms.Button();
             this.btn_purchasesret = new System.Windows.Forms.Button();
-            this.p_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.p_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -201,7 +201,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تنبيهات";
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
             // 
             // btn_refresh
             // 
@@ -234,6 +233,20 @@
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Size = new System.Drawing.Size(704, 437);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // p_name
+            // 
+            this.p_name.HeaderText = "العملية";
+            this.p_name.Name = "p_name";
+            this.p_name.ReadOnly = true;
+            this.p_name.Width = 500;
+            // 
+            // p_date
+            // 
+            this.p_date.HeaderText = "وقت العملية";
+            this.p_date.Name = "p_date";
+            this.p_date.ReadOnly = true;
+            this.p_date.Width = 160;
             // 
             // statusStrip1
             // 
@@ -283,7 +296,6 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "القائمة الرئيسية";
-            this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
             // 
             // btn_salesret
             // 
@@ -313,21 +325,7 @@
             this.btn_purchasesret.UseVisualStyleBackColor = true;
             this.btn_purchasesret.Click += new System.EventHandler(this.btn_purchasesret_Click);
             // 
-            // p_date
-            // 
-            this.p_date.HeaderText = "وقت العملية";
-            this.p_date.Name = "p_date";
-            this.p_date.ReadOnly = true;
-            this.p_date.Width = 160;
-            // 
-            // p_name
-            // 
-            this.p_name.HeaderText = "العملية";
-            this.p_name.Name = "p_name";
-            this.p_name.ReadOnly = true;
-            this.p_name.Width = 500;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -340,9 +338,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PieStore v1.1 برنامج إدارة المحلات";
+            this.Text = "PieStore v1.2 برنامج إدارة المحلات";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

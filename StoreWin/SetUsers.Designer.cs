@@ -182,8 +182,7 @@
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox1.Size = new System.Drawing.Size(373, 338);
             this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox1_Paint);
+            this.groupBox1.TabStop = false;           
             // 
             // SetUsers
             // 

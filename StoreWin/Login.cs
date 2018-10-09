@@ -1,13 +1,14 @@
-﻿using System;
-using System.Configuration;
-using System.Data.OleDb;
-using System.Drawing;
+﻿using StoreWin.App_Code;
+using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace StoreWin
 {
     public partial class Login : Form
     {
+        Connection con = new Connection();
+
         public static bool x1;
         public static string User = "";
         public Login()
@@ -15,65 +16,29 @@ namespace StoreWin
             InitializeComponent();
         }
 
-
         private void button_login_Click(object sender, EventArgs e)
         {
-            //access
-            OleDbConnection dbConn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PieStoreV1.Properties.Settings.StoreDBConnectionString"].ToString());
+            DataSet ds = con.Select("SELECT * FROM users WHERE user_name = '" + textBox_username.Text + "' AND user_pass = '" + textBox_pass.Text + "'", "users");
 
-            dbConn.Open();
-            OleDbCommand dbCommand = new OleDbCommand();
-            dbCommand.Connection = dbConn;
-
-            string sSQL = "SELECT * FROM users WHERE user_name = '"+ textBox_username.Text + "' AND user_pass = '"+ textBox_pass.Text + "'";
-            dbCommand.CommandText = sSQL;
-
-            //dbCommand.Parameters.AddWithValue("@username", textBox_username.Text);
-            //dbCommand.Parameters.AddWithValue("@pass", textBox_pass.Text);
-
-            OleDbDataReader reader = dbCommand.ExecuteReader();
-
-            if (reader.Read())
+            if (ds.Tables["users"].Rows.Count >0)
             {
                 x1 = true;
                 this.Hide();
                 User = textBox_username.Text;
 
-                OleDbCommand dbCommand3 = new OleDbCommand();
-                dbCommand3.Connection = dbConn;
+                string p_name = "عملية دخول للبرنامج - المستخدم  "+ User;
 
-                string sSQL3 = "INSERT INTO Processes(process_name)";
-                sSQL3 += "Values(@p_name);";
-                dbCommand3.CommandText = sSQL3;
-
-                string p_name = "عملية دخول للبرنامج - المستخدم  '"+ User + "' ";
-
-                dbCommand3.Parameters.AddWithValue("@p_name", p_name);
-
-                dbCommand3.ExecuteNonQuery();
+                con.Excute("INSERT INTO Processes(process_name) Values('"+ p_name + "');");
             }
             else
             {
 
             }
-            dbConn.Close();
-
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void groupBox1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics gfx = e.Graphics;
-            Pen p = new Pen(Color.Orange, 1);
-            gfx.DrawLine(p, 0, 5, 0, e.ClipRectangle.Height - 2);
-            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 10, 5);
-            gfx.DrawLine(p, 0, 5, e.ClipRectangle.Width - 80, 5);
-            gfx.DrawLine(p, e.ClipRectangle.Width - 2, 5, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2);
-            gfx.DrawLine(p, e.ClipRectangle.Width - 2, e.ClipRectangle.Height - 2, 0, e.ClipRectangle.Height - 2);
         }
     }
 }
